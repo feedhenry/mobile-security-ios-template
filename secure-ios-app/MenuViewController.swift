@@ -9,12 +9,7 @@
 import UIKit
 
 protocol DrawerMenuDelegate {
-    func drawerMenuItemSelectedAtIndex(_ index: Int)
-}
-
-struct MenuItem {
-    var title: String
-    var icon: String
+    func drawerMenuItemSelectedAtIndex(_ index: Int, _ animated: Bool)
 }
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -51,8 +46,6 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func updateArrayMenuOptions() {
-        arrayMenuOptions.append(MenuItem(title: "Home", icon: "ic_home"))
-        
         tblMenuOptions.reloadData()
     }
     
@@ -64,9 +57,24 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if(button == self.btnCloseDrawerOverlay){
                 index = -1
             }
-            delegate?.drawerMenuItemSelectedAtIndex(index)
+            delegate?.drawerMenuItemSelectedAtIndex(index, true)
         }
         
+        self.disappearWithAnimation()
+    }
+    
+    func setMenuItems(_ items: [MenuItem]) {
+        self.arrayMenuOptions = items
+    }
+    
+    func appearWithAnimation() {
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            self.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
+            self.btnMenu.isEnabled = true
+        }, completion:nil)
+    }
+    
+    func disappearWithAnimation() {
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.view.frame = CGRect(x: -UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height)
             self.view.layoutIfNeeded()
@@ -75,6 +83,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.view.removeFromSuperview()
             self.removeFromParentViewController()
         })
+    }
+    
+    func resizeView() {
+        self.view.frame = CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
     }
     
     /*

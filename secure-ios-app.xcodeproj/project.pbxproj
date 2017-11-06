@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		B302EA751FACD5A600EAD340 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B302EA741FACD5A600EAD340 /* BaseViewController.swift */; };
 		B302EA771FACD7EE00EAD340 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B302EA761FACD7EE00EAD340 /* HomeViewController.swift */; };
+		B342DF351FB0C90700BBA05B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342DF341FB0C90700BBA05B /* MainViewController.swift */; };
+		B342DF381FB0CA9900BBA05B /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342DF371FB0CA9900BBA05B /* AuthenticationViewController.swift */; };
 		B3E21B431FAC956E00082CF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E21B421FAC956E00082CF7 /* AppDelegate.swift */; };
-		B3E21B451FAC956E00082CF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E21B441FAC956E00082CF7 /* ViewController.swift */; };
 		B3E21B481FAC956E00082CF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E21B461FAC956E00082CF7 /* Main.storyboard */; };
 		B3E21B4B1FAC956E00082CF7 /* secure_ios_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3E21B491FAC956E00082CF7 /* secure_ios_app.xcdatamodeld */; };
 		B3E21B4D1FAC956E00082CF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3E21B4C1FAC956E00082CF7 /* Assets.xcassets */; };
@@ -40,9 +41,10 @@
 /* Begin PBXFileReference section */
 		B302EA741FACD5A600EAD340 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B302EA761FACD7EE00EAD340 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B342DF341FB0C90700BBA05B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B342DF371FB0CA9900BBA05B /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		B3E21B3F1FAC956E00082CF7 /* secure-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "secure-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E21B421FAC956E00082CF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3E21B441FAC956E00082CF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B3E21B471FAC956E00082CF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3E21B4A1FAC956E00082CF7 /* secure_ios_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = secure_ios_app.xcdatamodel; sourceTree = "<group>"; };
 		B3E21B4C1FAC956E00082CF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,7 +56,7 @@
 		B3E21B611FAC956E00082CF7 /* secure-ios-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "secure-ios-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E21B651FAC956E00082CF7 /* secure_ios_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secure_ios_appUITests.swift; sourceTree = "<group>"; };
 		B3E21B671FAC956E00082CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B3E21B751FAC979A00082CF7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = drawer/MenuViewController.swift; sourceTree = "<group>"; };
+		B3E21B751FAC979A00082CF7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B342DF361FB0C91500BBA05B /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				B302EA741FACD5A600EAD340 /* BaseViewController.swift */,
+				B3E21B751FAC979A00082CF7 /* MenuViewController.swift */,
+			);
+			name = menu;
+			sourceTree = "<group>";
+		};
 		B3E21B361FAC956E00082CF7 = {
 			isa = PBXGroup;
 			children = (
@@ -105,16 +116,16 @@
 		B3E21B411FAC956E00082CF7 /* secure-ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				B342DF361FB0C91500BBA05B /* menu */,
 				B3E21B421FAC956E00082CF7 /* AppDelegate.swift */,
-				B3E21B441FAC956E00082CF7 /* ViewController.swift */,
 				B3E21B461FAC956E00082CF7 /* Main.storyboard */,
 				B3E21B4C1FAC956E00082CF7 /* Assets.xcassets */,
 				B3E21B4E1FAC956E00082CF7 /* LaunchScreen.storyboard */,
 				B3E21B511FAC956E00082CF7 /* Info.plist */,
 				B3E21B491FAC956E00082CF7 /* secure_ios_app.xcdatamodeld */,
-				B3E21B751FAC979A00082CF7 /* MenuViewController.swift */,
-				B302EA741FACD5A600EAD340 /* BaseViewController.swift */,
 				B302EA761FACD7EE00EAD340 /* HomeViewController.swift */,
+				B342DF341FB0C90700BBA05B /* MainViewController.swift */,
+				B342DF371FB0CA9900BBA05B /* AuthenticationViewController.swift */,
 			);
 			path = "secure-ios-app";
 			sourceTree = "<group>";
@@ -271,9 +282,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B342DF351FB0C90700BBA05B /* MainViewController.swift in Sources */,
 				B302EA751FACD5A600EAD340 /* BaseViewController.swift in Sources */,
-				B3E21B451FAC956E00082CF7 /* ViewController.swift in Sources */,
 				B3E21B4B1FAC956E00082CF7 /* secure_ios_app.xcdatamodeld in Sources */,
+				B342DF381FB0CA9900BBA05B /* AuthenticationViewController.swift in Sources */,
 				B3E21B431FAC956E00082CF7 /* AppDelegate.swift in Sources */,
 				B3E21B761FAC979A00082CF7 /* MenuViewController.swift in Sources */,
 				B302EA771FACD7EE00EAD340 /* HomeViewController.swift in Sources */,

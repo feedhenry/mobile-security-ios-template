@@ -1,17 +1,22 @@
 //
-//  HomeViewController.swift
+//  MainViewController.swift
 //  secure-ios-app
 //
-//  Created by Wei Li on 03/11/2017.
+//  Created by Wei Li on 06/11/2017.
 //  Copyright © 2017 Wei Li. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class MainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addChildView(storyBoardId: "HomeViewController", titleOfChildView: "Home", iconName: "ic_home")
+        addChildView(storyBoardId: "AuthenticationViewController", titleOfChildView: "Authentication", iconName: "ic_account_circle")
+        
+        showFirstChild()
         // Do any additional setup after loading the view.
     }
 

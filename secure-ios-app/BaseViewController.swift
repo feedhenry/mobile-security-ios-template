@@ -8,11 +8,19 @@
 
 import UIKit
 
+struct MenuItem {
+    var title: String
+    var icon: String
+    var viewController: UIViewController
+}
+
 class BaseViewController: UIViewController, DrawerMenuDelegate {
 
+    var arrayMenuOptions = [MenuItem]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.addSlideMenuButton()
         // Do any additional setup after loading the view.
     }
 
@@ -21,43 +29,39 @@ class BaseViewController: UIViewController, DrawerMenuDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func drawerMenuItemSelectedAtIndex(_ index: Int) {
-        let topViewController : UIViewController = self.navigationController!.topViewController!
-        print("View Controller is : \(topViewController) \n", terminator: "")
-        switch(index){
-        case 0:
-            print("Home\n", terminator: "")
-            
-            self.openViewControllerBasedOnIdentifier("Home")
-            
-            break
-        case 1:
-            print("Play\n", terminator: "")
-            
-            self.openViewControllerBasedOnIdentifier("PlayVC")
-            
-            break
-        default:
-            print("default\n", terminator: "")
+    func drawerMenuItemSelectedAtIndex(_ index: Int, _ animated: Bool = true) {
+        if (index >= 0) {
+            let selectedMenuItem = arrayMenuOptions[index];
+            self.title = selectedMenuItem.title
+            openViewController(selectedMenuItem.viewController, animated)
         }
     }
     
-    func openViewControllerBasedOnIdentifier(_ strIdentifier:String){
-        let destViewController : UIViewController = self.storyboard!.instantiateViewController(withIdentifier: strIdentifier)
+    func openViewController(_ subViewNew:UIViewController, _ animated: Bool = true){
+        //Add new view
+        addChildViewController(subViewNew)
+        subViewNew.view.frame = (self.parent?.view.frame)!
+        view.addSubview(subViewNew.view)
+        subViewNew.didMove(toParentViewController: self)
         
-        let topViewController : UIViewController = self.navigationController!.topViewController!
-        
-        if (topViewController.restorationIdentifier! == destViewController.restorationIdentifier!){
-            print("Same VC")
-        } else {
-            self.navigationController!.pushViewController(destViewController, animated: true)
+        //Remove old view
+        if self.childViewControllers.count > 1 {
+            //Remove old view
+            let oldViewController: UIViewController = self.childViewControllers.first!
+            oldViewController.willMove(toParentViewController: nil)
+            oldViewController.view.removeFromSuperview()
+            oldViewController.removeFromParentViewController()
         }
+        
+        print("After Remove: \(self.childViewControllers.description)")
     }
     
     func addSlideMenuButton(){
+        let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.height
         let btnShowMenu = UIButton(type: UIButtonType.system)
+        btnShowMenu.tintColor = UIColor.white
         btnShowMenu.setImage(UIImage(named: "ic_view_headline"), for: UIControlState())
-        btnShowMenu.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        btnShowMenu.frame = CGRect(x: 0, y: 0, width: navigationBarHeight, height: navigationBarHeight)
         btnShowMenu.addTarget(self, action: #selector(BaseViewController.onSlideMenuButtonPressed(_:)), for: UIControlEvents.touchUpInside)
         let customBarItem = UIBarButtonItem(customView: btnShowMenu)
         self.navigationItem.leftBarButtonItem = customBarItem;
@@ -90,19 +94,26 @@ class BaseViewController: UIViewController, DrawerMenuDelegate {
         sender.tag = 10
         
         let menuVC : MenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        menuVC.setMenuItems(arrayMenuOptions)
         menuVC.btnMenu = sender
         menuVC.delegate = self
         self.view.addSubview(menuVC.view)
         self.addChildViewController(menuVC)
         menuVC.view.layoutIfNeeded()
+        menuVC.resizeView()
+        menuVC.appearWithAnimation()
         
+    }
+    
+    func addChildView(storyBoardId: String, titleOfChildView: String, iconName: String) {
+        let childViewToAdd: UIViewController = storyboard!.instantiateViewController(withIdentifier: storyBoardId)
         
-        menuVC.view.frame=CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-        
-        UIView.animate(withDuration: 0.3, animations: { () -> Void in
-            menuVC.view.frame=CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-            sender.isEnabled = true
-        }, completion:nil)
+        let menuItem: MenuItem = MenuItem(title: titleOfChildView, icon: iconName, viewController: childViewToAdd)
+        arrayMenuOptions.append(menuItem)
+    }
+    
+    func showFirstChild() {
+        self.drawerMenuItemSelectedAtIndex(0, false)
     }
 
     /*
