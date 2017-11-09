@@ -5,7 +5,11 @@ machine:
     XCODE_WORKSPACE: "secure-ios-app.xcworkspace"
     XCODE_SCHEME: "secure-ios-app"
     SIMULATOR: "iPhone 7"
-    OS: "11.0"
+    OS: "11.0.1"
+
+dependencies:
+  pre:
+    - xcrun simctl list
 
 test:
   override:
