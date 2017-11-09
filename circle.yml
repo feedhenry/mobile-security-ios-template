@@ -1,11 +1,11 @@
 machine:
   xcode:
-    version: 9.0
+    version: 9.1
   environment:
     XCODE_WORKSPACE: "secure-ios-app.xcworkspace"
     XCODE_SCHEME: "secure-ios-app"
-    SIMULATOR: "iPhone 7"
-    OS: "iOS 11.0"
+    SIMULATOR: "iPhone 8"
+    OS: "11.1"
 
 test:
   override:
