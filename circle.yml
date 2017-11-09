@@ -5,11 +5,11 @@ machine:
     XCODE_WORKSPACE: "secure-ios-app.xcworkspace"
     XCODE_SCHEME: "secure-ios-app"
     SIMULATOR: "iPhone 8"
-    OS: "11.1"
+    OS: "11.0.1"
 
 dependencies:
   pre:
-    - xcrun instruments -w "iPhone 8 (11.1) [" || true
+    - xcrun instruments -w "iPhone 8 (11.0.1) [" || true
 
 test:
   override:
