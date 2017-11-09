@@ -4,8 +4,8 @@ machine:
   environment:
     XCODE_WORKSPACE: "secure-ios-app.xcworkspace"
     XCODE_SCHEME: "secure-ios-app"
-    SIMULATOR: "iPhone 8"
-    OS: "11.1"
+    SIMULATOR: "iPhone 7"
+    OS: "latest"
 
 test:
   override:
