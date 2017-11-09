@@ -1,0 +1,6 @@
+framework module Pods_secure_ios_appUITests {
+  umbrella header "Pods-secure-ios-appUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

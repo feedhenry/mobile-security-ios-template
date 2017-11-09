@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>api-server</key>
+	<dict>
+		<key>server-url</key>
+		<string>https://api-server-mobile-security.osm1.skunkhenry.com</string>
+	</dict>
+	<key>auth-server</key>
+	<dict>
+		<key>auth-server-url</key>
+		<string>https://keycloak-openshift-mobile-security.osm1.skunkhenry.com</string>
+		<key>realm-id</key>
+		<string>secure-app</string>
+		<key>client-id</key>
+		<string>client-app</string>
+	</dict>
+</dict>
+</plist>
