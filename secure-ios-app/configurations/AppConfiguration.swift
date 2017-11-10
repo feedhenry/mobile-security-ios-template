@@ -10,8 +10,21 @@ import Foundation
 
 struct AuthServerConfiguration {
     let authServerUrl: URL
-    let readmId: String
+    let realmId: String
     let clientId: String
+    var clientSecret: String?
+    
+    var authEndpoint: URL {
+        get {
+            return self.authServerUrl.appendingPathComponent("/auth/realms/\(realmId)/protocol/openid-connect/auth")
+        }
+    }
+    
+    var tokenEndpoint: URL {
+        get {
+            return self.authServerUrl.appendingPathComponent("/auth/realms/\(realmId)/protocol/openid-connect/token")
+        }
+    }
 }
 
 struct ApiServerConfiguration {
@@ -26,6 +39,7 @@ class AppConfiguration {
     static let AUTH_SERVER_URL_KEY = "auth-server-url"
     static let AUTH_SERVER_REALM_ID_KEY = "realm-id"
     static let AUTH_SERVER_CLIENT_ID_KEY = "client-id"
+    static let AUTH_SERVER_CLIENT_SECRET_KEY = "client-secret"
     
     let authServerConf: AuthServerConfiguration
     let apiServerConf: ApiServerConfiguration
@@ -39,7 +53,9 @@ class AppConfiguration {
         let serverUrl = URL(string: authServerConfig.value(forKey: AppConfiguration.AUTH_SERVER_URL_KEY) as! String)
         let realmId = authServerConfig.value(forKey: AppConfiguration.AUTH_SERVER_REALM_ID_KEY) as! String
         let clientId = authServerConfig.value(forKey: AppConfiguration.AUTH_SERVER_CLIENT_ID_KEY) as! String
-        return AuthServerConfiguration(authServerUrl: serverUrl!, readmId: realmId, clientId: clientId)
+        let clientSecret = authServerConfig.value(forKey: AppConfiguration.AUTH_SERVER_CLIENT_SECRET_KEY) as? String
+        
+        return AuthServerConfiguration(authServerUrl: serverUrl!, realmId: realmId, clientId: clientId, clientSecret: clientSecret)
     }
     
    class func initApiServerConfig(_ apiServerConfig: NSDictionary) -> ApiServerConfiguration {

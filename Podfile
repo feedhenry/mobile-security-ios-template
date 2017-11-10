@@ -7,6 +7,8 @@ target 'secure-ios-app' do
 
   # Pods for secure-ios-app
   pod 'MaterialComponents'
+  pod 'AppAuth'
+  pod 'SwiftKeychainWrapper'
   
   target 'secure-ios-appTests' do
     inherit! :search_paths

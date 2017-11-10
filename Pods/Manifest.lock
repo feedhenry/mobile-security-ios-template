@@ -1,4 +1,5 @@
 PODS:
+  - AppAuth (0.91.0)
   - MaterialComponents (38.1.1):
     - MaterialComponents/ActivityIndicator (= 38.1.1)
     - MaterialComponents/AnimationTiming (= 38.1.1)
@@ -336,18 +337,23 @@ PODS:
     - MotionInterchange
   - MotionInterchange (1.2.0)
   - MotionTransitioning (4.0.1)
+  - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
+  - AppAuth
   - MaterialComponents
+  - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
+  AppAuth: 3e0dc9c00ef333dc62064e4830aa89b597ae8d2f
   MaterialComponents: 246309fe020b2782255df4b9e3b485cd65da1f4f
   MDFInternationalization: 51b5f3889aca8bc13385e9a6c363eb0b0f257cf9
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
   MotionAnimator: f241c4acd49dea603c3a2ea131727d57853a281b
   MotionInterchange: 499c98e7628a8a078905749734dbfedbfae54cca
   MotionTransitioning: 277501a1a1e6121c0ab523e6a3e00d64659c3367
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: e0329c7546ebc4b51b90e874e9488805bf123cef
+PODFILE CHECKSUM: daf7033522ef6f0fff2e51069705fb0e08bdf3f5
 
 COCOAPODS: 1.2.1

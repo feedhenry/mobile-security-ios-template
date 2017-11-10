@@ -14,7 +14,7 @@ import UIKit
  It should call the child module's corresponding builder class to build the child module, pass on the dependencies that are required.
  */
 protocol RootRouter {
-    var appConfiguration: AppConfiguration {get}
+    var appComponents: AppComponents {get}
     var rootViewController: RootViewController {get}
     
     func launchFromWindow(window:UIWindow)
@@ -26,15 +26,15 @@ class RootRouterImpl: RootRouter {
     
     let navViewController: UINavigationController
     let rootViewController: RootViewController
-    let appConfiguration: AppConfiguration
+    let appComponents: AppComponents
     
     var homeRouter: HomeRouter?
     var authenticationRouter: AuthenticationRouter?
     
-    init(navViewController: UINavigationController, viewController: RootViewController, appConfiguration: AppConfiguration) {
+    init(navViewController: UINavigationController, viewController: RootViewController, appComponents: AppComponents) {
         self.navViewController = navViewController
         self.rootViewController = viewController
-        self.appConfiguration = appConfiguration
+        self.appComponents = appComponents
     }
     
     func launchFromWindow(window: UIWindow) {
@@ -51,7 +51,7 @@ class RootRouterImpl: RootRouter {
     
     func launchAuthenticationView() {
         if self.authenticationRouter == nil {
-            self.authenticationRouter = AuthenticationBuilder().build(authServerConfiguration: appConfiguration.authServerConf)
+            self.authenticationRouter = AuthenticationBuilder(appComponents: self.appComponents).build()
         }
         self.rootViewController.presentViewController(self.authenticationRouter!.viewController, true)
     }

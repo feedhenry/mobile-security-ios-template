@@ -159,6 +159,9 @@
                                 <state key="normal" title="Authentication">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="onAuthButtonTapped:" destination="0gj-pQ-B8K" eventType="touchUpInside" id="uPk-oU-5aj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -171,6 +174,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gwj-Jw-9E4"/>
                     </view>
+                    <connections>
+                        <outlet property="authenticationButton" destination="qIO-9y-Yom" id="zrr-7L-cYm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pU-zk-TOq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

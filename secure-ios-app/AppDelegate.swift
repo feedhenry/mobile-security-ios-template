@@ -13,6 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var authService: AuthenticationService?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -24,10 +25,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let configDict = NSDictionary(contentsOfFile: configFilePath)!
         let appConfiguration = AppConfiguration(configDict)
         
-        let rootBuilder = RootBuilder(config: appConfiguration)
+        let appComponents = AppComponents(appConfiguration: appConfiguration)
+        
+        let rootBuilder = RootBuilder(components: appComponents)
         let rootRouter = rootBuilder.build()
         rootRouter.launchFromWindow(window: window!)
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if authService!.resumeAuth(url: url as URL) {
+            self.authService = nil
+            return true
+        }
+        return false
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
