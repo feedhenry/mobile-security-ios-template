@@ -9,16 +9,28 @@
 import Foundation
 
 /* Implement the business logic for the authentication view here. */
-protocol AuthenticationInteractor {
-    var authServerConfiguration: AuthServerConfiguration {get}
+protocol AuthenticationInteractor: AuthListener {
+    var authService: AuthenticationService {get}
     var router: AuthenticationRouter? {get set}
 }
 
 class AuthenticationInteractorImpl: AuthenticationInteractor {
-    let authServerConfiguration: AuthServerConfiguration
+    
+    let authService: AuthenticationService
     var router: AuthenticationRouter?
     
-    init(authServerConfiguration: AuthServerConfiguration) {
-        self.authServerConfiguration = authServerConfiguration
+    init(authService: AuthenticationService) {
+        self.authService = authService
+    }
+    
+    func startAuth(presentingViewController: UIViewController) {
+        self.authService.performAuthentication(presentingViewController: presentingViewController){
+            identify,error in
+            if identify != nil {
+                Logger.info("got user identity: \(identify.debugDescription)")
+            } else {
+                Logger.info("authentication failed")
+            }
+        }
     }
 }

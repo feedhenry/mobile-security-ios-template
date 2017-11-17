@@ -20,6 +20,10 @@
 		B30BEBBC1FB367C80008A171 /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBBB1FB367C80008A171 /* AuthenticationRouter.swift */; };
 		B30BEBBE1FB368690008A171 /* AuthenticationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBBD1FB368690008A171 /* AuthenticationBuilder.swift */; };
 		B30BEBC01FB368D50008A171 /* AuthenticationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBBF1FB368D50008A171 /* AuthenticationInteractor.swift */; };
+		B30BEBE31FB4A7290008A171 /* AppComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBE21FB4A7290008A171 /* AppComponents.swift */; };
+		B30BEBE81FB4A89E0008A171 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBE71FB4A89E0008A171 /* AuthenticationService.swift */; };
+		B30BEBEB1FB5B40D0008A171 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBEA1FB5B40D0008A171 /* Logger.swift */; };
+		B30BEBEE1FB5B7770008A171 /* Identify.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBED1FB5B7770008A171 /* Identify.swift */; };
 		B342DF351FB0C90700BBA05B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342DF341FB0C90700BBA05B /* RootViewController.swift */; };
 		B342DF381FB0CA9900BBA05B /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342DF371FB0CA9900BBA05B /* AuthenticationViewController.swift */; };
 		B39FDB091FB2012C00C1EC0F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FDB081FB2012C00C1EC0F /* BaseViewController.swift */; };
@@ -69,6 +73,11 @@
 		B30BEBBB1FB367C80008A171 /* AuthenticationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
 		B30BEBBD1FB368690008A171 /* AuthenticationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationBuilder.swift; sourceTree = "<group>"; };
 		B30BEBBF1FB368D50008A171 /* AuthenticationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractor.swift; sourceTree = "<group>"; };
+		B30BEBE21FB4A7290008A171 /* AppComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponents.swift; sourceTree = "<group>"; };
+		B30BEBE71FB4A89E0008A171 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		B30BEBE91FB4ABFF0008A171 /* secure-ios-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "secure-ios-app-Bridging-Header.h"; sourceTree = "<group>"; };
+		B30BEBEA1FB5B40D0008A171 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		B30BEBED1FB5B7770008A171 /* Identify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identify.swift; sourceTree = "<group>"; };
 		B342DF341FB0C90700BBA05B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		B342DF371FB0CA9900BBA05B /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		B39FDB081FB2012C00C1EC0F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +176,31 @@
 			path = home;
 			sourceTree = "<group>";
 		};
+		B30BEBE11FB4A7100008A171 /* di */ = {
+			isa = PBXGroup;
+			children = (
+				B30BEBE21FB4A7290008A171 /* AppComponents.swift */,
+			);
+			path = di;
+			sourceTree = "<group>";
+		};
+		B30BEBE41FB4A72E0008A171 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				B30BEBE71FB4A89E0008A171 /* AuthenticationService.swift */,
+				B30BEBEA1FB5B40D0008A171 /* Logger.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		B30BEBEC1FB5B7290008A171 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B30BEBED1FB5B7770008A171 /* Identify.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		B39FDB021FB1FE9300C1EC0F /* authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +237,9 @@
 		B3E21B411FAC956E00082CF7 /* secure-ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				B30BEBEC1FB5B7290008A171 /* model */,
+				B30BEBE41FB4A72E0008A171 /* services */,
+				B30BEBE11FB4A7100008A171 /* di */,
 				B30BEBB01FB3240E0008A171 /* home */,
 				B30BEBAF1FB323BB0008A171 /* root */,
 				B30BEB9F1FB2093A0008A171 /* configurations */,
@@ -215,6 +252,7 @@
 				B3E21B511FAC956E00082CF7 /* Info.plist */,
 				B3E21B491FAC956E00082CF7 /* secure_ios_app.xcdatamodeld */,
 				B30BEBA51FB229C40008A171 /* AppConfig.plist */,
+				B30BEBE91FB4ABFF0008A171 /* secure-ios-app-Bridging-Header.h */,
 			);
 			path = "secure-ios-app";
 			sourceTree = "<group>";
@@ -327,7 +365,7 @@
 				TargetAttributes = {
 					B3E21B3E1FAC956E00082CF7 = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					B3E21B551FAC956E00082CF7 = {
 						CreatedOnToolsVersion = 9.1;
@@ -532,10 +570,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B30BEBEB1FB5B40D0008A171 /* Logger.swift in Sources */,
 				B342DF351FB0C90700BBA05B /* RootViewController.swift in Sources */,
 				B30BEBBA1FB365AB0008A171 /* HomeBuilder.swift in Sources */,
 				B30BEBB81FB364550008A171 /* HomeRouter.swift in Sources */,
 				B3E21B4B1FAC956E00082CF7 /* secure_ios_app.xcdatamodeld in Sources */,
+				B30BEBEE1FB5B7770008A171 /* Identify.swift in Sources */,
 				B30BEBC01FB368D50008A171 /* AuthenticationInteractor.swift in Sources */,
 				B30BEBBE1FB368690008A171 /* AuthenticationBuilder.swift in Sources */,
 				B30BEBB61FB3556B0008A171 /* RootInteractor.swift in Sources */,
@@ -543,8 +583,10 @@
 				B342DF381FB0CA9900BBA05B /* AuthenticationViewController.swift in Sources */,
 				B39FDB0B1FB2012F00C1EC0F /* MenuViewController.swift in Sources */,
 				B30BEBBC1FB367C80008A171 /* AuthenticationRouter.swift in Sources */,
+				B30BEBE31FB4A7290008A171 /* AppComponents.swift in Sources */,
 				B3E21B431FAC956E00082CF7 /* AppDelegate.swift in Sources */,
 				B302EA771FACD7EE00EAD340 /* HomeViewController.swift in Sources */,
+				B30BEBE81FB4A89E0008A171 /* AuthenticationService.swift in Sources */,
 				B30BEBB21FB324800008A171 /* RootBuilder.swift in Sources */,
 				B30BEBB41FB32AD40008A171 /* RootRouter.swift in Sources */,
 				B39FDB091FB2012C00C1EC0F /* BaseViewController.swift in Sources */,
@@ -714,11 +756,16 @@
 			baseConfigurationReference = AD54EEC2CFFB1CC5C561CFAC /* Pods-secure-ios-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GHPBX39444;
 				INFOPLIST_FILE = "secure-ios-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.redhat.secure-ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c708fd4a-a5c7-4353-b315-5d70039e67ce";
+				PROVISIONING_PROFILE_SPECIFIER = RHTINHOUSE;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/secure-ios-app/secure-ios-app-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -729,11 +776,16 @@
 			baseConfigurationReference = CBB29BB07BFAFFA62B9AE8B2 /* Pods-secure-ios-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GHPBX39444;
 				INFOPLIST_FILE = "secure-ios-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.redhat.secure-ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c708fd4a-a5c7-4353-b315-5d70039e67ce";
+				PROVISIONING_PROFILE_SPECIFIER = RHTINHOUSE;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/secure-ios-app/secure-ios-app-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

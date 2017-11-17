@@ -6,6 +6,7 @@ machine:
     XCODE_SCHEME: "secure-ios-app"
     SIMULATOR: "iPhone 8"
     OS: "11.1"
+    GYM_CODE_SIGNING_IDENTITY: "iPhone Distribution: Red Hat, Inc."
 
 test:
   override:
@@ -21,3 +22,10 @@ test:
         clean build test |
       tee $CIRCLE_ARTIFACTS/xcode_raw.log |
       xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results.xml
+
+deployment:
+  master:
+    branch: master
+    commands:
+      -  gym --workspace "secure-ios-app.xcworkspace" --scheme "secure-ios-app" --export_method "enterprise"
+      - ./pushToKryptowire.sh $KRYPTOWIRE_API_KEY

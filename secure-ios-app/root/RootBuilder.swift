@@ -16,10 +16,10 @@ import UIKit
  */
 class RootBuilder {
     
-    let appConfiguration: AppConfiguration
+    let appComponents: AppComponents
     
-    init(config: AppConfiguration) {
-        appConfiguration = config
+    init(components: AppComponents) {
+        self.appComponents = components
     }
     
     func build() -> RootRouter {
@@ -27,7 +27,7 @@ class RootBuilder {
         let navController = mainStoryboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
         let rootViewController = navController.childViewControllers.first as! RootViewController;
         
-        let rootRouter = RootRouterImpl(navViewController: navController, viewController: rootViewController, appConfiguration: appConfiguration)
+        let rootRouter = RootRouterImpl(navViewController: navController, viewController: rootViewController, appComponents: self.appComponents)
         
         let rootInteractor = RootInteractorImpl()
         rootInteractor.router = rootRouter

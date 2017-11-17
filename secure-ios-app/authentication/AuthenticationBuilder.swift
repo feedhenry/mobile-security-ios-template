@@ -15,13 +15,21 @@ import UIKit
  */
 class AuthenticationBuilder {
     
-    func build(authServerConfiguration: AuthServerConfiguration) -> AuthenticationRouter {
+    let appComponents: AppComponents
+    
+    init(appComponents: AppComponents) {
+        self.appComponents = appComponents
+    }
+    
+    func build() -> AuthenticationRouter {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "AuthenticationViewController") as! AuthenticationViewController
         
         let authenticationRouter = AuthenticationRouterImpl(viewController: viewController)
-        let authenticationInteractor = AuthenticationInteractorImpl(authServerConfiguration: authServerConfiguration)
+        let authenticationInteractor = AuthenticationInteractorImpl(authService: self.appComponents.resolveAuthService())
         authenticationInteractor.router = authenticationRouter
+        
+        viewController.authListener = authenticationInteractor
         return authenticationRouter
     }
 }
