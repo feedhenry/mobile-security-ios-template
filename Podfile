@@ -6,7 +6,6 @@ target 'secure-ios-app' do
   use_frameworks!
 
   # Pods for secure-ios-app
-  pod 'MaterialComponents'
   pod 'AppAuth'
   pod 'SwiftKeychainWrapper'
   

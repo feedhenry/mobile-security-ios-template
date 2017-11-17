@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MaterialComponents
 
 protocol AuthListener {
     func startAuth(presentingViewController: UIViewController)
@@ -16,7 +15,7 @@ protocol AuthListener {
 /* The view controller for the authentication view. It should pass the user events to the listener (interactor) */
 class AuthenticationViewController: UIViewController {
     
-    @IBOutlet weak var authenticationButton: MDCRaisedButton!
+    @IBOutlet weak var authenticationButton: UIButton!
     
     var authListener: AuthListener?
 
@@ -31,7 +30,7 @@ class AuthenticationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onAuthButtonTapped(_ sender: MDCRaisedButton) {
+    @IBAction func onAuthButtonTapped(_ sender: UIButton) {
         if let listener = self.authListener {
             listener.startAuth(presentingViewController: self)
         }

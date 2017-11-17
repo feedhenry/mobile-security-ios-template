@@ -365,7 +365,7 @@
 				TargetAttributes = {
 					B3E21B3E1FAC956E00082CF7 = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					B3E21B551FAC956E00082CF7 = {
 						CreatedOnToolsVersion = 9.1;
@@ -756,11 +756,15 @@
 			baseConfigurationReference = AD54EEC2CFFB1CC5C561CFAC /* Pods-secure-ios-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GHPBX39444;
 				INFOPLIST_FILE = "secure-ios-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.redhat.secure-ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c708fd4a-a5c7-4353-b315-5d70039e67ce";
+				PROVISIONING_PROFILE_SPECIFIER = RHTINHOUSE;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/secure-ios-app/secure-ios-app-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -772,11 +776,15 @@
 			baseConfigurationReference = CBB29BB07BFAFFA62B9AE8B2 /* Pods-secure-ios-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GHPBX39444;
 				INFOPLIST_FILE = "secure-ios-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.redhat.secure-ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c708fd4a-a5c7-4353-b315-5d70039e67ce";
+				PROVISIONING_PROFILE_SPECIFIER = RHTINHOUSE;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/secure-ios-app/secure-ios-app-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
