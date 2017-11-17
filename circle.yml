@@ -27,5 +27,5 @@ deployment:
   master:
     branch: master
     commands:
-      -  gym --workspace "secure-ios-app.xcworkspace" --scheme "secure-ios-app" --export_method "enterprise"
+      -  fastlane gym --workspace "secure-ios-app.xcworkspace" --scheme "secure-ios-app" --export_method "enterprise"
       - ./pushToKryptowire.sh $KRYPTOWIRE_API_KEY
