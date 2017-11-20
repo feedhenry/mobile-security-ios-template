@@ -15,9 +15,16 @@ protocol AuthenticationRouter {
 
 class AuthenticationRouterImpl: AuthenticationRouter {
     let viewController: AuthenticationViewController
+    var detailsViewController: AuthenticationDetailsViewController?
     
     init(viewController: AuthenticationViewController) {
         self.viewController = viewController
+    }
+    
+    func showUserDetails(_ identify: Identify) {
+        if (self.detailsViewController == nil) {
+            //self.detailsViewController = 
+        }
     }
     
 }
