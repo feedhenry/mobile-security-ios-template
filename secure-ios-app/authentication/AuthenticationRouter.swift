@@ -11,20 +11,25 @@ import Foundation
 /* Manage the routing insdie the authentication view */
 protocol AuthenticationRouter {
     var viewController: AuthenticationViewController {get}
+    var detailsViewController: AuthenticationDetailsViewController {get}
+    func showUserDetails(_ identify: Identify)
 }
 
 class AuthenticationRouterImpl: AuthenticationRouter {
     let viewController: AuthenticationViewController
-    var detailsViewController: AuthenticationDetailsViewController?
+    let detailsViewController: AuthenticationDetailsViewController
     
-    init(viewController: AuthenticationViewController) {
+    init(viewController: AuthenticationViewController, detailsViewController: AuthenticationDetailsViewController) {
         self.viewController = viewController
+        self.detailsViewController = detailsViewController
     }
     
     func showUserDetails(_ identify: Identify) {
-        if (self.detailsViewController == nil) {
-            //self.detailsViewController = 
-        }
+        self.detailsViewController.userIdentify = identify
+        self.viewController.addChildViewController(self.detailsViewController)
+        
+        self.detailsViewController.view.frame = self.viewController.view.bounds
+        self.viewController.view.addSubview(self.detailsViewController.view)
+        self.detailsViewController.didMove(toParentViewController: self.viewController)
     }
-    
 }

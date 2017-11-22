@@ -24,8 +24,9 @@ class AuthenticationBuilder {
     func build() -> AuthenticationRouter {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "AuthenticationViewController") as! AuthenticationViewController
+        let detailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "AuthenticationDetailsViewController") as! AuthenticationDetailsViewController
         
-        let authenticationRouter = AuthenticationRouterImpl(viewController: viewController)
+        let authenticationRouter = AuthenticationRouterImpl(viewController: viewController, detailsViewController: detailsViewController)
         let authenticationInteractor = AuthenticationInteractorImpl(authService: self.appComponents.resolveAuthService())
         authenticationInteractor.router = authenticationRouter
         

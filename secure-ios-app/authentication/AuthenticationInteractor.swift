@@ -28,6 +28,7 @@ class AuthenticationInteractorImpl: AuthenticationInteractor {
             identify,error in
             if identify != nil {
                 Logger.info("got user identity: \(identify.debugDescription)")
+                self.router?.showUserDetails(identify!)
             } else {
                 Logger.info("authentication failed")
             }
