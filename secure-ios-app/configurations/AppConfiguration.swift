@@ -42,7 +42,7 @@ struct ApiServerConfiguration {
 class AppConfiguration {
     static let API_SERVER_KEY = "api-server"
     static let API_SERVER_URL_KEY = "server-url"
-    
+
     static let AUTH_SERVER_KEY = "auth-server"
     static let AUTH_SERVER_URL_KEY = "auth-server-url"
     static let AUTH_SERVER_REALM_ID_KEY = "realm-id"

@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		60D50C8A54566A305214D89E /* Pods_secure_ios_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CB8BA2824140238CE2CF40 /* Pods_secure_ios_app.framework */; };
 		9FD0E3027E3260E404C80D84 /* Pods_secure_ios_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE92F9E3F9D3C5BEBF24DA86 /* Pods_secure_ios_appTests.framework */; };
+		AB3E11F91FC2F42900B7302C /* AppAuth in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3E11F81FC2F42900B7302C /* AppAuth */; };
+		AB3E11FB1FC3214300B7302C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E11FA1FC3214300B7302C /* Note.swift */; };
+		AB3E11FE1FC3238D00B7302C /* StorageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E11FD1FC3238D00B7302C /* StorageRouter.swift */; };
+		AB3E12021FC324D000B7302C /* StorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E12011FC324D000B7302C /* StorageViewController.swift */; };
+		AB3E12041FC3307400B7302C /* StorageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E12031FC3307400B7302C /* StorageInteractor.swift */; };
+		AB3E12061FC331CB00B7302C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E12051FC331CB00B7302C /* StorageService.swift */; };
+		AB3E12081FC3376500B7302C /* StorageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E12071FC3376500B7302C /* StorageBuilder.swift */; };
 		B302EA771FACD7EE00EAD340 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B302EA761FACD7EE00EAD340 /* HomeViewController.swift */; };
 		B30BEBA11FB20F3F0008A171 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBA01FB20F3F0008A171 /* AppConfiguration.swift */; };
 		B30BEBA61FB229C40008A171 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B30BEBA51FB229C40008A171 /* AppConfig.plist */; };
@@ -63,6 +70,13 @@
 		57812F23C88594EB493A2670 /* Pods-secure-ios-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-secure-ios-appTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-secure-ios-appTests/Pods-secure-ios-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7FD5F435EC6A784532CCCEF8 /* Pods-secure-ios-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-secure-ios-appTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-secure-ios-appTests/Pods-secure-ios-appTests.release.xcconfig"; sourceTree = "<group>"; };
 		A564516AC590A89FD5711D21 /* Pods_secure_ios_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_secure_ios_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB3E11F81FC2F42900B7302C /* AppAuth */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppAuth; path = Pods/AppAuth; sourceTree = "<group>"; };
+		AB3E11FA1FC3214300B7302C /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		AB3E11FD1FC3238D00B7302C /* StorageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageRouter.swift; sourceTree = "<group>"; };
+		AB3E12011FC324D000B7302C /* StorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewController.swift; sourceTree = "<group>"; };
+		AB3E12031FC3307400B7302C /* StorageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageInteractor.swift; sourceTree = "<group>"; };
+		AB3E12051FC331CB00B7302C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		AB3E12071FC3376500B7302C /* StorageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageBuilder.swift; sourceTree = "<group>"; };
 		AD54EEC2CFFB1CC5C561CFAC /* Pods-secure-ios-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-secure-ios-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-secure-ios-app/Pods-secure-ios-app.debug.xcconfig"; sourceTree = "<group>"; };
 		B302EA761FACD7EE00EAD340 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B30BEBA01FB20F3F0008A171 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
@@ -109,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3E11F91FC2F42900B7302C /* AppAuth in Frameworks */,
 				60D50C8A54566A305214D89E /* Pods_secure_ios_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,11 +150,23 @@
 		5C13C1B8C244C094E76A2FCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB3E11F81FC2F42900B7302C /* AppAuth */,
 				F6CB8BA2824140238CE2CF40 /* Pods_secure_ios_app.framework */,
 				BE92F9E3F9D3C5BEBF24DA86 /* Pods_secure_ios_appTests.framework */,
 				A564516AC590A89FD5711D21 /* Pods_secure_ios_appUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB3E11FC1FC3236100B7302C /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				AB3E11FD1FC3238D00B7302C /* StorageRouter.swift */,
+				AB3E12011FC324D000B7302C /* StorageViewController.swift */,
+				AB3E12031FC3307400B7302C /* StorageInteractor.swift */,
+				AB3E12071FC3376500B7302C /* StorageBuilder.swift */,
+			);
+			path = storage;
 			sourceTree = "<group>";
 		};
 		B30BEB9E1FB208F20008A171 /* menu */ = {
@@ -194,6 +221,7 @@
 				B30BEBE71FB4A89E0008A171 /* AuthenticationService.swift */,
 				B30BEBEA1FB5B40D0008A171 /* Logger.swift */,
 				B32CBD2D1FD0B61F008CFEF1 /* ViewHelper.swift */,
+				AB3E12051FC331CB00B7302C /* StorageService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -202,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				B30BEBED1FB5B7770008A171 /* Identity.swift */,
+				AB3E11FA1FC3214300B7302C /* Note.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -250,6 +279,7 @@
 				B30BEBAF1FB323BB0008A171 /* root */,
 				B30BEB9F1FB2093A0008A171 /* configurations */,
 				B30BEB9E1FB208F20008A171 /* menu */,
+				AB3E11FC1FC3236100B7302C /* storage */,
 				B39FDB021FB1FE9300C1EC0F /* authentication */,
 				B3E21B421FAC956E00082CF7 /* AppDelegate.swift */,
 				B3E21B461FAC956E00082CF7 /* Main.storyboard */,
@@ -500,13 +530,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-secure-ios-app-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9750510A98B5F4439898778B /* [CP] Check Pods Manifest.lock */ = {
@@ -515,13 +548,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-secure-ios-appUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A9EB5C9CF935FFE7394DBA60 /* [CP] Check Pods Manifest.lock */ = {
@@ -530,13 +566,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-secure-ios-appTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BEDD5545E2EDC51564483ABE /* [CP] Embed Pods Frameworks */ = {
@@ -560,9 +599,30 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-secure-ios-app/Pods-secure-ios-app-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -580,6 +640,7 @@
 				B342DF351FB0C90700BBA05B /* RootViewController.swift in Sources */,
 				B30BEBBA1FB365AB0008A171 /* HomeBuilder.swift in Sources */,
 				B37C63891FC323F300D52CD4 /* AuthenticationDetailsViewController.swift in Sources */,
+				AB3E12081FC3376500B7302C /* StorageBuilder.swift in Sources */,
 				B30BEBB81FB364550008A171 /* HomeRouter.swift in Sources */,
 				B3E21B4B1FAC956E00082CF7 /* secure_ios_app.xcdatamodeld in Sources */,
 				B32CBD2E1FD0B61F008CFEF1 /* ViewHelper.swift in Sources */,
@@ -587,6 +648,9 @@
 				B30BEBC01FB368D50008A171 /* AuthenticationInteractor.swift in Sources */,
 				B30BEBBE1FB368690008A171 /* AuthenticationBuilder.swift in Sources */,
 				B30BEBB61FB3556B0008A171 /* RootInteractor.swift in Sources */,
+				AB3E12021FC324D000B7302C /* StorageViewController.swift in Sources */,
+				AB3E12061FC331CB00B7302C /* StorageService.swift in Sources */,
+				AB3E12041FC3307400B7302C /* StorageInteractor.swift in Sources */,
 				B30BEBA11FB20F3F0008A171 /* AppConfiguration.swift in Sources */,
 				B342DF381FB0CA9900BBA05B /* AuthenticationViewController.swift in Sources */,
 				B39FDB0B1FB2012F00C1EC0F /* MenuViewController.swift in Sources */,
@@ -596,7 +660,9 @@
 				B302EA771FACD7EE00EAD340 /* HomeViewController.swift in Sources */,
 				B30BEBE81FB4A89E0008A171 /* AuthenticationService.swift in Sources */,
 				B30BEBB21FB324800008A171 /* RootBuilder.swift in Sources */,
+				AB3E11FE1FC3238D00B7302C /* StorageRouter.swift in Sources */,
 				B30BEBB41FB32AD40008A171 /* RootRouter.swift in Sources */,
+				AB3E11FB1FC3214300B7302C /* Note.swift in Sources */,
 				B39FDB091FB2012C00C1EC0F /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

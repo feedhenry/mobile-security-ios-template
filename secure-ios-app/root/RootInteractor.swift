@@ -30,6 +30,8 @@ class RootInteractorImpl: RootInteractor {
             router?.launchHomeView()
         case RootViewController.MENU_AUTHENTICATION_TITLE:
             router?.launchAuthenticationView()
+        case RootViewController.MENU_STORAGE_TITLE:
+            router?.launchStorageView()
         default:
             print("no view to show")
         }

@@ -114,13 +114,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.89054404145077726" green="0.22852610118157468" blue="0.22818006970377214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="llH-61-lXP">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="WdN-He-yVl" kind="relationship" relationship="rootViewController" id="iv4-Ux-13o"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fj-Nx-jkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="114"/>
+            <point key="canvasLocation" x="1362.3188405797102" y="113.31521739130436"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="v8p-WY-l5v">
@@ -136,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5UA-zb-vjM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="113"/>
+            <point key="canvasLocation" x="2314.4927536231885" y="112.50000000000001"/>
         </scene>
         <!--Authentication View Controller-->
         <scene sceneID="IQC-hG-Dfp">
@@ -180,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pU-zk-TOq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008.6956521739132" y="218.47826086956525"/>
+            <point key="canvasLocation" x="3237.68115942029" y="218.47826086956525"/>
         </scene>
         <!--Authentication Details View Controller-->
         <scene sceneID="UMd-LZ-fWp">
@@ -296,7 +299,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X23-KN-rty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="-461"/>
+            <point key="canvasLocation" x="3215.9420289855075" y="-461.41304347826093"/>
+        </scene>
+        <!--Storage View Controller-->
+        <scene sceneID="B89-iV-Ryj">
+            <objects>
+                <tableViewController storyboardIdentifier="StorageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LdS-5d-4WE" customClass="StorageViewController" customModule="secure_ios_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ngh-uV-mH8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteTableViewCell" textLabel="vXo-OD-OsF" style="IBUITableViewCellStyleDefault" id="ugE-6C-WSb" customClass="NoteTableViewCell" customModule="secure_ios_app" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ugE-6C-WSb" id="Ai2-Xa-foL">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vXo-OD-OsF">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LdS-5d-4WE" id="2ab-bE-xdx"/>
+                            <outlet property="delegate" destination="LdS-5d-4WE" id="01v-fI-lUC"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bXM-z8-f4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1260.8695652173915" y="73.369565217391312"/>
         </scene>
     </scenes>
     <resources>
