@@ -20,6 +20,7 @@ protocol RootRouter {
     func launchFromWindow(window:UIWindow)
     func launchHomeView()
     func launchAuthenticationView()
+    func launchStorageView()
 }
 
 class RootRouterImpl: RootRouter {
@@ -30,6 +31,7 @@ class RootRouterImpl: RootRouter {
     
     var homeRouter: HomeRouter?
     var authenticationRouter: AuthenticationRouter?
+    var storageRouter: StorageRouter?
     
     init(navViewController: UINavigationController, viewController: RootViewController, appComponents: AppComponents) {
         self.navViewController = navViewController
@@ -54,5 +56,13 @@ class RootRouterImpl: RootRouter {
             self.authenticationRouter = AuthenticationBuilder(appComponents: self.appComponents).build()
         }
         self.rootViewController.presentViewController(self.authenticationRouter!.viewController, true)
+    }
+    
+    // Storage View
+    func launchStorageView() {
+        if self.storageRouter == nil {
+            self.storageRouter = StorageBuilder(appComponents: self.appComponents).build()
+        }
+        self.rootViewController.presentViewController(self.storageRouter!.viewController, true)
     }
 }

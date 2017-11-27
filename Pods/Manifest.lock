@@ -1,27 +1,51 @@
 PODS:
   - Alamofire (4.5.1)
   - AppAuth (0.91.0)
+  - Floaty (4.0.0)
   - MarqueeLabel/Swift (3.1.3)
   - NotificationBannerSwift (1.5.1):
     - MarqueeLabel/Swift
     - SnapKit (~> 4.0)
+  - Realm (3.0.2):
+    - Realm/Headers (= 3.0.2)
+  - Realm/Headers (3.0.2)
+  - RealmSwift (3.0.2):
+    - Realm (= 3.0.2)
+  - SCLAlertView (0.7.0)
   - SnapKit (4.0.0)
   - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - AppAuth
+  - Floaty (~> 4.0.0)
   - NotificationBannerSwift
+  - RealmSwift
+  - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`, branch `master`)
   - SwiftKeychainWrapper
+
+EXTERNAL SOURCES:
+  SCLAlertView:
+    :branch: master
+    :git: https://github.com/vikmeup/SCLAlertView-Swift.git
+
+CHECKOUT OPTIONS:
+  SCLAlertView:
+    :commit: 85329ce66c297bea79ddef92908ff2040174ccf9
+    :git: https://github.com/vikmeup/SCLAlertView-Swift.git
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   AppAuth: 3e0dc9c00ef333dc62064e4830aa89b597ae8d2f
+  Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   MarqueeLabel: baa5753dcbd36dca080e1f5c589a665aa5c906f1
   NotificationBannerSwift: 666e6c392238561c17a52db4c50e6f00d9942e0d
+  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
+  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 1659cda30f241205887b8d1a0942f2bac9a2d13d
+PODFILE CHECKSUM: b1a43de97fb9c502a19413a460e4fd56359b6352
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
