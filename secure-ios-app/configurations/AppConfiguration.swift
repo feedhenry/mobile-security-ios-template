@@ -25,6 +25,14 @@ struct AuthServerConfiguration {
             return self.authServerUrl.appendingPathComponent("/auth/realms/\(realmId)/protocol/openid-connect/token")
         }
     }
+    
+    func getLogoutUrl(identityToken: String) -> URL {
+        let queryItems = [NSURLQueryItem(name: "id_token_hint", value: identityToken)]
+        let urlComps = NSURLComponents(string: self.authServerUrl.appendingPathComponent("/auth/realms/\(realmId)/protocol/openid-connect/logout").absoluteString)!
+        urlComps.queryItems = queryItems as [URLQueryItem]
+        let fullurl = urlComps.url!
+        return fullurl
+    }
 }
 
 struct ApiServerConfiguration {

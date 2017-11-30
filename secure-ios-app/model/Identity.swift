@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Identify {
+struct Identity {
     var userName: String = "Unknown Username"
     var fullName: String = "Unknown Name"
     var emailAddress: String = "Unknown Email"
