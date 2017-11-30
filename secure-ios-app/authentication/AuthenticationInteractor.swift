@@ -26,12 +26,13 @@ class AuthenticationInteractorImpl: AuthenticationInteractor {
     func startAuth(presentingViewController: UIViewController) {
         self.authService.performAuthentication(presentingViewController: presentingViewController){
             identify,error in
-            if identify != nil {
-                Logger.info("got user identity: \(identify.debugDescription)")
-                self.router?.showUserDetails(identify!)
-            } else {
-                Logger.info("authentication failed")
-            }
+            self.router?.navigateToUserDetailsView(withIdentify: identify, andError: error)
         }
+    }
+    
+    func logout() {
+        self.authService.performLogout(onCompleted: { error in
+            self.router?.leaveUserDetailsView(withError: error)
+        })
     }
 }

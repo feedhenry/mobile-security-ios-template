@@ -8,6 +8,8 @@ target 'secure-ios-app' do
   # Pods for secure-ios-app
   pod 'AppAuth'
   pod 'SwiftKeychainWrapper'
+  pod 'Alamofire', '~> 4.5'
+  pod 'NotificationBannerSwift'
   
   target 'secure-ios-appTests' do
     inherit! :search_paths

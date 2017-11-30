@@ -12,7 +12,8 @@ import Foundation
 protocol AuthenticationRouter {
     var viewController: AuthenticationViewController {get}
     var detailsViewController: AuthenticationDetailsViewController {get}
-    func showUserDetails(_ identify: Identify)
+    func navigateToUserDetailsView(withIdentify identify: Identity?, andError error: Error?)
+    func leaveUserDetailsView(withError error: Error?)
 }
 
 class AuthenticationRouterImpl: AuthenticationRouter {
@@ -24,12 +25,23 @@ class AuthenticationRouterImpl: AuthenticationRouter {
         self.detailsViewController = detailsViewController
     }
     
-    func showUserDetails(_ identify: Identify) {
-        self.detailsViewController.userIdentify = identify
-        self.viewController.addChildViewController(self.detailsViewController)
-        
-        self.detailsViewController.view.frame = self.viewController.view.bounds
-        self.viewController.view.addSubview(self.detailsViewController.view)
-        self.detailsViewController.didMove(toParentViewController: self.viewController)
+    func navigateToUserDetailsView(withIdentify identity: Identity?, andError error: Error?) {
+        if let identityInfo = identity {
+            Logger.info("got user identity: \(identityInfo)")
+            self.detailsViewController.displayUserDetails(from: self.viewController, identity: identityInfo)
+        } else if let err = error {
+            Logger.info("authentication failed with error \(err.localizedDescription)")
+            self.viewController.showError(title: "Login Failed", error: err)
+        }
+    }
+    
+    func leaveUserDetailsView(withError error: Error?) {
+        if let err = error {
+            Logger.error("logout failed due to error : \(err.localizedDescription)")
+            self.detailsViewController.showError(title: "Logout Failed", error: err)
+        } else {
+            Logger.debug("user logged out successfully")
+            self.detailsViewController.removeView()
+        }
     }
 }

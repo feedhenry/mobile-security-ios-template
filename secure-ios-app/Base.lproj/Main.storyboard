@@ -154,7 +154,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIO-9y-Yom">
-                                <rect key="frame" x="10" y="656" width="394" height="30"/>
+                                <rect key="frame" x="10" y="556" width="394" height="30"/>
                                 <color key="backgroundColor" red="0.89054404149999999" green="0.2285261012" blue="0.22818006969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Authentication">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -170,7 +170,7 @@
                             <constraint firstItem="qIO-9y-Yom" firstAttribute="leading" secondItem="Gwj-Jw-9E4" secondAttribute="leading" constant="10" id="Ve2-9W-6tu"/>
                             <constraint firstItem="Gwj-Jw-9E4" firstAttribute="trailing" secondItem="qIO-9y-Yom" secondAttribute="trailing" constant="10" id="fFv-qF-91I"/>
                             <constraint firstItem="C8B-1d-pk7" firstAttribute="centerX" secondItem="VTi-M1-TCF" secondAttribute="centerX" id="hF1-ZI-59U"/>
-                            <constraint firstItem="Gwj-Jw-9E4" firstAttribute="bottom" secondItem="qIO-9y-Yom" secondAttribute="bottom" constant="50" id="tUp-em-AZx"/>
+                            <constraint firstItem="Gwj-Jw-9E4" firstAttribute="bottom" secondItem="qIO-9y-Yom" secondAttribute="bottom" constant="150" id="tUp-em-AZx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gwj-Jw-9E4"/>
                     </view>
@@ -259,8 +259,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fUv-ym-c9I" firstAttribute="top" secondItem="C2d-pe-5ad" secondAttribute="top" id="Dz1-g8-0dv"/>
                             <constraint firstItem="fUv-ym-c9I" firstAttribute="leading" secondItem="C2d-pe-5ad" secondAttribute="leading" id="EhR-Nd-a2L"/>
-                            <constraint firstItem="fUv-ym-c9I" firstAttribute="top" secondItem="C2d-pe-5ad" secondAttribute="top" id="TtJ-c9-FY3"/>
                             <constraint firstItem="C2d-pe-5ad" firstAttribute="trailing" secondItem="fUv-ym-c9I" secondAttribute="trailing" id="bz5-MY-EAK"/>
                             <constraint firstItem="C2d-pe-5ad" firstAttribute="bottom" secondItem="fUv-ym-c9I" secondAttribute="bottom" id="lyW-YC-2ZA"/>
                         </constraints>

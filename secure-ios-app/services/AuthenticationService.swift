@@ -10,11 +10,13 @@ import Foundation
 import AppAuth
 import UIKit
 import SwiftKeychainWrapper
+import Alamofire
 
 protocol AuthenticationService {
-    func performAuthentication(presentingViewController viewController:UIViewController, onCompleted: @escaping (Identify?, Error?) -> Void)
+    func performAuthentication(presentingViewController viewController:UIViewController, onCompleted: @escaping (Identity?, Error?) -> Void)
     func resumeAuth(url: URL) -> Bool
     func isLoggedIn() -> Bool
+    func performLogout(onCompleted: @escaping (Error?) -> Void)
 }
 
 class AppAuthAuthenticationService: AuthenticationService {
@@ -26,8 +28,8 @@ class AppAuthAuthenticationService: AuthenticationService {
     
     var currentAuthorisationFlow: OIDAuthorizationFlowSession?
     var authState: OIDAuthState?
-    var identify: Identify?
-    var onCompleted: ((Identify?, Error?) -> Void)?
+    var identify: Identity?
+    var onCompleted: ((Identity?, Error?) -> Void)?
     
     init(authServerConfig: AuthServerConfiguration, kcWrapper: KeychainWrapper) {
         self.authServerConfiguration = authServerConfig
@@ -36,11 +38,11 @@ class AppAuthAuthenticationService: AuthenticationService {
         self.identify = getIdentify(authState: self.authState)
     }
     
-    func performAuthentication(presentingViewController viewController:UIViewController, onCompleted: @escaping (Identify?, Error?) -> Void) {
+    func performAuthentication(presentingViewController viewController:UIViewController, onCompleted: @escaping (Identity?, Error?) -> Void) {
         self.onCompleted = onCompleted
         
         let oidServiceConfiguration = OIDServiceConfiguration(authorizationEndpoint: self.authServerConfiguration.authEndpoint, tokenEndpoint: self.authServerConfiguration.tokenEndpoint)
-        let oidAuthRequest = OIDAuthorizationRequest(configuration: oidServiceConfiguration, clientId: self.authServerConfiguration.clientId, scopes: [OIDScopeOpenID], redirectURL: REDIRECT_URL!, responseType: OIDResponseTypeCode, additionalParameters: nil)
+        let oidAuthRequest = OIDAuthorizationRequest(configuration: oidServiceConfiguration, clientId: self.authServerConfiguration.clientId, scopes: [OIDScopeOpenID, OIDScopeProfile], redirectURL: REDIRECT_URL!, responseType: OIDResponseTypeCode, additionalParameters: nil)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.authService = self;
@@ -80,9 +82,24 @@ class AppAuthAuthenticationService: AuthenticationService {
         self.authCompleted(identify: nil, error: e)
     }
     
-    func authCompleted(identify: Identify?, error: Error?) {
+    func authCompleted(identify: Identity?, error: Error?) {
         if (self.onCompleted != nil) {
             self.onCompleted!(identify, error)
+        }
+    }
+    
+    func performLogout(onCompleted: @escaping (Error?) -> Void) {
+        if self.isLoggedIn() {
+            let logoutUrl = self.authServerConfiguration.getLogoutUrl(identityToken: self.authState!.lastTokenResponse!.idToken!)
+            Alamofire.request(logoutUrl).validate(statusCode: 200..<300).responseData(completionHandler: {response in
+                switch response.result {
+                case .success:
+                    self.assignAuthState(authState: nil)
+                    onCompleted(nil)
+                case .failure(let error):
+                    onCompleted(error)
+                }
+            })
         }
     }
     
@@ -107,11 +124,11 @@ class AppAuthAuthenticationService: AuthenticationService {
         return loadedState as? OIDAuthState
     }
     
-    fileprivate func getIdentify(authState: OIDAuthState?) -> Identify? {
+    fileprivate func getIdentify(authState: OIDAuthState?) -> Identity? {
         if authState == nil {
             return nil
         }
-        return Identify(accessToken: authState!.lastTokenResponse?.accessToken)
+        return Identity(accessToken: authState!.lastTokenResponse?.accessToken)
     }
 }
 
@@ -125,7 +142,7 @@ func base64urlToBase64(base64url: String) -> String {
     return base64
 }
 
-extension Identify {
+extension Identity {
     init?(accessToken: String?) {
         if accessToken == nil {
             return nil

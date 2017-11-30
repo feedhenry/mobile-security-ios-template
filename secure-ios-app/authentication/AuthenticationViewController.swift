@@ -10,6 +10,7 @@ import UIKit
 
 protocol AuthListener {
     func startAuth(presentingViewController: UIViewController)
+    func logout()
 }
 
 /* The view controller for the authentication view. It should pass the user events to the listener (interactor) */
@@ -34,6 +35,10 @@ class AuthenticationViewController: UIViewController {
         if let listener = self.authListener {
             listener.startAuth(presentingViewController: self)
         }
+    }
+    
+    func showError(title: String, error: Error) {
+        ViewHelper.showErrorBannerMessage(from: self, title: title, message: error.localizedDescription)
     }
     
     /*

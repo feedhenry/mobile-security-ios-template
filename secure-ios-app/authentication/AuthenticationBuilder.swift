@@ -31,6 +31,7 @@ class AuthenticationBuilder {
         authenticationInteractor.router = authenticationRouter
         
         viewController.authListener = authenticationInteractor
+        detailsViewController.authListener = authenticationInteractor
         return authenticationRouter
     }
 }

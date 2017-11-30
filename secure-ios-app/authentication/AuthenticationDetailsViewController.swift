@@ -8,11 +8,14 @@
 
 import UIKit
 
+
 class AuthenticationDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var userInfoView: UITableView!
     
-    var userIdentify: Identify = Identify()
+    var userIdentify: Identity = Identity()
+    var navbarItem: UINavigationItem?
+    var authListener: AuthListener?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,53 @@ class AuthenticationDetailsViewController: UIViewController, UITableViewDataSour
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.showLogoutBtn()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.removeLogoutBtn()
+    }
+    
+    func displayUserDetails(from: UIViewController, identity: Identity) {
+        self.userIdentify = identity
+        ViewHelper.showChildViewController(parentViewController: from, childViewController: self)
+        ViewHelper.showSuccessBannerMessage(from: self, title: "Login Completed", message: "")
+    }
+    
+    func showError(title: String, error: Error) {
+        ViewHelper.showErrorBannerMessage(from: self, title: title, message: error.localizedDescription)
+    }
+    
+    func removeView() {
+        ViewHelper.removeViewController(viewController: self)
+    }
+    
+    func showLogoutBtn() {
+        guard let rootViewController = self.parent?.parent else {
+            return
+        }
+        self.navbarItem = rootViewController.navigationItem
+        self.navbarItem!.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+    }
+    
+    func removeLogoutBtn() {
+        if self.navbarItem != nil {
+            self.navbarItem!.rightBarButtonItem = nil;
+        }
+    }
+    
+    @IBAction func logoutTapped(_ sender: UIBarButtonItem) {
+        let alertView = UIAlertController(title: "Logout", message: "Are you sure to logout?", preferredStyle: UIAlertControllerStyle.alert)
+        alertView.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            if let listener = self.authListener {
+                listener.logout()
+            }
+        }))
+        alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+            Logger.debug("logout cancelled")
+        }))
+        self.present(alertView, animated: true, completion: nil)
     }
     
 
@@ -80,7 +129,7 @@ class AuthenticationDetailsViewController: UIViewController, UITableViewDataSour
         case 0:
             return "User Details"
         case 1:
-            return "Roles"
+            return "Realm Roles"
         default:
             return ""
         }
