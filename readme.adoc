@@ -1,0 +1,22 @@
+image:https://circleci.com/gh/feedhenry/mobile-security-ios-template.svg?style=svg["CircleCI", link="https://circleci.com/gh/feedhenry/mobile-security-ios-template"]
+image:https://img.shields.io/badge/Swift%20Version-4.0-green.svg[]
+
+= Secure iOS Swift Template
+
+A Native iOS Application that demonstrates Secure Mobile Development Practises.
+
+For more information, please check the https://github.com/feedhenry/mobile-security[Mobile Security Project].
+
+== Features
+- OpenID Connect Authentication
+- Mobile Access Control
+- Client Cert Authentication
+- Secure Data Storage
+- Buffer Overflow Protections
+- Device Trust Checks (Jailbreak, latest OS etc)
+- iOS Snapshot Caching Protection
+- 2FA with OTP (via Keycloak)
+- Authentication Brute Force Detection (via Keycloak)
+- Account Lockout Policies (via Keycloak)
+- Authentication/Access Control Auditing & Logging (via Keycloak)
+- Authenticated Calls to Protected Endpoints (via Keycloak)
