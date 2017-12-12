@@ -1,0 +1,6 @@
+framework module DTTJailbreakDetection {
+  umbrella header "DTTJailbreakDetection-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -13,6 +13,7 @@ target 'secure-ios-app' do
   pod 'RealmSwift'
   pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git', :branch => 'master'
   pod 'Floaty', '~> 4.0.0'
+  pod 'DTTJailbreakDetection'
 
   target 'secure-ios-appTests' do
     inherit! :search_paths

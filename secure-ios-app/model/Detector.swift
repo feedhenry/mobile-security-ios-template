@@ -9,6 +9,6 @@
 import Foundation
 
 struct Detector {
-    var name: String
+    var label: String
     var detected: Bool
 }

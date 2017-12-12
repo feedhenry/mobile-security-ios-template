@@ -21,6 +21,7 @@ protocol RootRouter {
     func launchHomeView()
     func launchAuthenticationView()
     func launchStorageView()
+    func launchDeviceTrustView()
 }
 
 class RootRouterImpl: RootRouter {
@@ -32,6 +33,7 @@ class RootRouterImpl: RootRouter {
     var homeRouter: HomeRouter?
     var authenticationRouter: AuthenticationRouter?
     var storageRouter: StorageRouter?
+    var deviceTrustRouter: DeviceTrustRouter?
     
     init(navViewController: UINavigationController, viewController: RootViewController, appComponents: AppComponents) {
         self.navViewController = navViewController
@@ -64,5 +66,13 @@ class RootRouterImpl: RootRouter {
             self.storageRouter = StorageBuilder(appComponents: self.appComponents).build()
         }
         self.rootViewController.presentViewController(self.storageRouter!.viewController, true)
+    }
+    
+    // Device Trust View
+    func launchDeviceTrustView() {
+        if self.deviceTrustRouter == nil {
+            self.deviceTrustRouter = DeviceTrustBuilder(appComponents: self.appComponents).build()
+        }
+        self.rootViewController.presentViewController(self.deviceTrustRouter!.viewController, true)
     }
 }
