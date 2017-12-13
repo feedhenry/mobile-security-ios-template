@@ -10,27 +10,28 @@ import Foundation
 import SwiftKeychainWrapper
 
 class AppComponents {
-    
+
     let appConfiguration: AppConfiguration
     let kcWrapper: KeychainWrapper
-    
+
     var authService: AuthenticationService?
-    
+
     var storageService: StorageService?
     let REALM_STORAGE_KEYCHAIN_ALIAS = "realm-db-keychain"
-    
+    var deviceTrustService: DeviceTrustService?
+
     init(appConfiguration: AppConfiguration) {
         self.appConfiguration = appConfiguration
         self.kcWrapper = KeychainWrapper.standard
     }
-    
+
     func resolveAuthService() -> AuthenticationService {
         if self.authService == nil {
             self.authService = AppAuthAuthenticationService(authServerConfig: self.appConfiguration.authServerConf, kcWrapper: self.kcWrapper)
         }
         return self.authService!
     }
-    
+
     // Setup the Storage Service
     func resolveStorageService() -> StorageService {
         if self.storageService == nil {
@@ -40,5 +41,12 @@ class AppComponents {
             encryptionKey = nil
         }
         return self.storageService!
+    }
+
+    func resolveDeviceTrustService() -> DeviceTrustService {
+        if self.deviceTrustService == nil {
+            self.deviceTrustService = iosDeviceTrustService()
+        }
+        return self.deviceTrustService!
     }
 }

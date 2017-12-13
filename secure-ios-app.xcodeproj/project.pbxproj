@@ -16,6 +16,12 @@
 		AB3E12041FC3307400B7302C /* StorageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E12031FC3307400B7302C /* StorageInteractor.swift */; };
 		AB3E12061FC331CB00B7302C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E12051FC331CB00B7302C /* StorageService.swift */; };
 		AB3E12081FC3376500B7302C /* StorageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E12071FC3376500B7302C /* StorageBuilder.swift */; };
+		ABEDBC7C1FD040490027066A /* DeviceTrustService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC7B1FD040490027066A /* DeviceTrustService.swift */; };
+		ABEDBC8F1FD04A7C0027066A /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC8E1FD04A7C0027066A /* Detector.swift */; };
+		ABEDBC911FD04AF90027066A /* DeviceTrustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC901FD04AF90027066A /* DeviceTrustViewController.swift */; };
+		ABEDBC931FD04B820027066A /* DeviceTrustRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC921FD04B820027066A /* DeviceTrustRouter.swift */; };
+		ABEDBC951FD04BF10027066A /* DeviceTrustBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC941FD04BF10027066A /* DeviceTrustBuilder.swift */; };
+		ABEDBC971FD04C830027066A /* DeviceTrustInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC961FD04C830027066A /* DeviceTrustInteractor.swift */; };
 		B302EA771FACD7EE00EAD340 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B302EA761FACD7EE00EAD340 /* HomeViewController.swift */; };
 		B30BEBA11FB20F3F0008A171 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBA01FB20F3F0008A171 /* AppConfiguration.swift */; };
 		B30BEBA61FB229C40008A171 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B30BEBA51FB229C40008A171 /* AppConfig.plist */; };
@@ -77,6 +83,12 @@
 		AB3E12031FC3307400B7302C /* StorageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageInteractor.swift; sourceTree = "<group>"; };
 		AB3E12051FC331CB00B7302C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		AB3E12071FC3376500B7302C /* StorageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageBuilder.swift; sourceTree = "<group>"; };
+		ABEDBC7B1FD040490027066A /* DeviceTrustService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTrustService.swift; sourceTree = "<group>"; };
+		ABEDBC8E1FD04A7C0027066A /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
+		ABEDBC901FD04AF90027066A /* DeviceTrustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTrustViewController.swift; sourceTree = "<group>"; };
+		ABEDBC921FD04B820027066A /* DeviceTrustRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTrustRouter.swift; sourceTree = "<group>"; };
+		ABEDBC941FD04BF10027066A /* DeviceTrustBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTrustBuilder.swift; sourceTree = "<group>"; };
+		ABEDBC961FD04C830027066A /* DeviceTrustInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTrustInteractor.swift; sourceTree = "<group>"; };
 		AD54EEC2CFFB1CC5C561CFAC /* Pods-secure-ios-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-secure-ios-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-secure-ios-app/Pods-secure-ios-app.debug.xcconfig"; sourceTree = "<group>"; };
 		B302EA761FACD7EE00EAD340 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B30BEBA01FB20F3F0008A171 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
@@ -169,6 +181,17 @@
 			path = storage;
 			sourceTree = "<group>";
 		};
+		ABEDBC831FD049840027066A /* deviceTrust */ = {
+			isa = PBXGroup;
+			children = (
+				ABEDBC901FD04AF90027066A /* DeviceTrustViewController.swift */,
+				ABEDBC921FD04B820027066A /* DeviceTrustRouter.swift */,
+				ABEDBC941FD04BF10027066A /* DeviceTrustBuilder.swift */,
+				ABEDBC961FD04C830027066A /* DeviceTrustInteractor.swift */,
+			);
+			path = deviceTrust;
+			sourceTree = "<group>";
+		};
 		B30BEB9E1FB208F20008A171 /* menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +245,7 @@
 				B30BEBEA1FB5B40D0008A171 /* Logger.swift */,
 				B32CBD2D1FD0B61F008CFEF1 /* ViewHelper.swift */,
 				AB3E12051FC331CB00B7302C /* StorageService.swift */,
+				ABEDBC7B1FD040490027066A /* DeviceTrustService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -231,6 +255,7 @@
 			children = (
 				B30BEBED1FB5B7770008A171 /* Identity.swift */,
 				AB3E11FA1FC3214300B7302C /* Note.swift */,
+				ABEDBC8E1FD04A7C0027066A /* Detector.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -280,6 +305,7 @@
 				B30BEB9F1FB2093A0008A171 /* configurations */,
 				B30BEB9E1FB208F20008A171 /* menu */,
 				AB3E11FC1FC3236100B7302C /* storage */,
+				ABEDBC831FD049840027066A /* deviceTrust */,
 				B39FDB021FB1FE9300C1EC0F /* authentication */,
 				B3E21B421FAC956E00082CF7 /* AppDelegate.swift */,
 				B3E21B461FAC956E00082CF7 /* Main.storyboard */,
@@ -602,6 +628,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-secure-ios-app/Pods-secure-ios-app-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/DTTJailbreakDetection/DTTJailbreakDetection.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
@@ -615,6 +642,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTTJailbreakDetection.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
@@ -642,9 +670,12 @@
 				B37C63891FC323F300D52CD4 /* AuthenticationDetailsViewController.swift in Sources */,
 				AB3E12081FC3376500B7302C /* StorageBuilder.swift in Sources */,
 				B30BEBB81FB364550008A171 /* HomeRouter.swift in Sources */,
+				ABEDBC7C1FD040490027066A /* DeviceTrustService.swift in Sources */,
+				ABEDBC911FD04AF90027066A /* DeviceTrustViewController.swift in Sources */,
 				B3E21B4B1FAC956E00082CF7 /* secure_ios_app.xcdatamodeld in Sources */,
 				B32CBD2E1FD0B61F008CFEF1 /* ViewHelper.swift in Sources */,
 				B30BEBEE1FB5B7770008A171 /* Identity.swift in Sources */,
+				ABEDBC8F1FD04A7C0027066A /* Detector.swift in Sources */,
 				B30BEBC01FB368D50008A171 /* AuthenticationInteractor.swift in Sources */,
 				B30BEBBE1FB368690008A171 /* AuthenticationBuilder.swift in Sources */,
 				B30BEBB61FB3556B0008A171 /* RootInteractor.swift in Sources */,
@@ -655,15 +686,18 @@
 				B342DF381FB0CA9900BBA05B /* AuthenticationViewController.swift in Sources */,
 				B39FDB0B1FB2012F00C1EC0F /* MenuViewController.swift in Sources */,
 				B30BEBBC1FB367C80008A171 /* AuthenticationRouter.swift in Sources */,
+				ABEDBC951FD04BF10027066A /* DeviceTrustBuilder.swift in Sources */,
 				B30BEBE31FB4A7290008A171 /* AppComponents.swift in Sources */,
 				B3E21B431FAC956E00082CF7 /* AppDelegate.swift in Sources */,
 				B302EA771FACD7EE00EAD340 /* HomeViewController.swift in Sources */,
 				B30BEBE81FB4A89E0008A171 /* AuthenticationService.swift in Sources */,
 				B30BEBB21FB324800008A171 /* RootBuilder.swift in Sources */,
 				AB3E11FE1FC3238D00B7302C /* StorageRouter.swift in Sources */,
+				ABEDBC931FD04B820027066A /* DeviceTrustRouter.swift in Sources */,
 				B30BEBB41FB32AD40008A171 /* RootRouter.swift in Sources */,
 				AB3E11FB1FC3214300B7302C /* Note.swift in Sources */,
 				B39FDB091FB2012C00C1EC0F /* BaseViewController.swift in Sources */,
+				ABEDBC971FD04C830027066A /* DeviceTrustInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
