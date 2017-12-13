@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SCLAlertView
 
 protocol DeviceTrustListener {
     func performTrustChecks() -> [Detector]
@@ -82,6 +83,19 @@ class DeviceTrustViewController: UITableViewController {
      */
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.deviceChecks.count
+    }
+    
+    /**
+     - Handler for selections on the table cells
+     */
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detection = self.deviceChecks[indexPath.row]
+        
+        if(detection.detected) {
+            SCLAlertView().showError(detection.label, subTitle: detection.description)
+        } else {
+            SCLAlertView().showSuccess(detection.label, subTitle: detection.description)
+        }
     }
     
     /**

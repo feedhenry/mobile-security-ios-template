@@ -11,4 +11,5 @@ import Foundation
 struct Detector {
     var label: String
     var detected: Bool
+    var description: String
 }
