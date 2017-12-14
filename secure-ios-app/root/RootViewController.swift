@@ -15,8 +15,8 @@ class RootViewController: BaseViewController,  DrawerMenuDelegate {
     
     static let MENU_HOME_TITLE = "Home"
     static let MENU_AUTHENTICATION_TITLE = "Authentication"
-    static let MENU_STORAGE_TITLE = "Storage"
-    static let MENU_DEVICETRUST_TITLE = "Device Trust"
+    static let MENU_STORAGE_TITLE = "Secure Storage"
+    static let MENU_DEVICETRUST_TITLE = "Device"
     
     var listener: MenuListener?
 
