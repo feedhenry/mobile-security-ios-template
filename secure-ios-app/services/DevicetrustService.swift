@@ -63,8 +63,11 @@ class iosDeviceTrustService: DeviceTrustService {
         return self.detections
     }
     
+    // tag::detectDeviceLock[]
     /**
      - Check if a lock screen is set on the device. (iOS 9 or higher).
+     
+     - Returns: A detector object.
      */
     fileprivate func detectDeviceLock() -> Detector {
         let deviceLockSet = LAContext().canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
@@ -74,9 +77,13 @@ class iosDeviceTrustService: DeviceTrustService {
             return Detector(label: DETECTION_DEVICE_LOCK_NEGATIVE, detected: false, description: DETECTION_DEVICE_LOCK_DESC)
         }
     }
+    // end::detectDeviceLock[]
     
+    // tag::detectJailbreak[]
     /**
      - Check if the device running the application is jailbroken.
+     
+     - Returns: A detector object.
      */
     fileprivate func detectJailbreak() -> Detector {
         if (DTTJailbreakDetection.isJailbroken()) {
@@ -85,9 +92,13 @@ class iosDeviceTrustService: DeviceTrustService {
             return Detector(label: JAILBREAK_DETECTED_NEGATIVE, detected: false, description: JAILBREAK_DETECTED_DESC)
         }
     }
+    // end::detectJailbreak[]
     
+    // tag::detectDebugabble[]
     /**
      - Check if the device running the application is jailbroken.
+     
+     - Returns: A detector object.
      */
     fileprivate func detectDebugabble() -> Detector {
         #if DEBUG
@@ -96,9 +107,13 @@ class iosDeviceTrustService: DeviceTrustService {
             return Detector(label: DEBUG_MODE_DETECTED_NEGATIVE, detected: false, description: DEBUG_MODE_DETECTED_DESC)
         #endif
     }
+    // end::detectDebugabble[]
     
+    // tag::detectEmulator[]
     /**
      - Check if the application is running in an emulator.
+     
+     - Returns: A detector object.
      */
     fileprivate func detectEmulator() -> Detector {
         #if (arch(i386) || arch(x86_64)) && os(iOS)
@@ -107,9 +122,13 @@ class iosDeviceTrustService: DeviceTrustService {
             return Detector(label: EMULATOR_DETECTED_NEGATIVE, detected: false, description: EMULATOR_DETECTED_DESC)
         #endif
     }
+    // end::detectEmulator[]
     
+    // tag::detectLatestOS[]
     /**
      - Check if the device is running the on the latest version of iOS.
+     
+     - Returns: A detector object.
      */
     fileprivate func detectLatestOS() -> Detector {
         if #available(iOS 11.0, *) {
@@ -118,6 +137,7 @@ class iosDeviceTrustService: DeviceTrustService {
             return Detector(label: LATEST_OS_DETECTED_POSITIVE, detected: true, description: LATEST_OS_DETECTED_DESC)
         }
     }
+    // end::detectLatestOS[]
 
 }
 
