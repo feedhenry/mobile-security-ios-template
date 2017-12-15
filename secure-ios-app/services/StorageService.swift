@@ -25,6 +25,7 @@ class RealmStorageService: StorageService {
     let encryptionKey: Data
     let keychainWrapper: KeychainWrapper
 
+    // tag::init[]
     /**
      - Initilise the Realm Storage Service
      
@@ -37,7 +38,9 @@ class RealmStorageService: StorageService {
         let encryptionConfig = Realm.Configuration(encryptionKey: self.encryptionKey)
         self.realm = try! Realm(configuration: encryptionConfig)
     }
+    // end::init[]
     
+    // tag::list[]
     /**
      - List the stored entities from the realm db
      
@@ -77,7 +80,9 @@ class RealmStorageService: StorageService {
             }
         }
     }
+    // end::list[]
 
+    // tag::create[]
     /**
      - Create the stored entity
      
@@ -117,7 +122,9 @@ class RealmStorageService: StorageService {
             }
         }
     }
+    // end::create[]
     
+    // tag::read[]
     /**
      - Read the stored entity
      
@@ -155,7 +162,9 @@ class RealmStorageService: StorageService {
             }
         }
     }
+    // end::read[]
     
+    // tag::edit[]
     /**
      - Edit the stored entity
      
@@ -185,7 +194,9 @@ class RealmStorageService: StorageService {
             }
         }
     }
+    // end::edit[]
     
+    // tag::delete[]
     /**
      - Delete the stored entity
      
@@ -213,7 +224,9 @@ class RealmStorageService: StorageService {
             
         }
     }
+    // end::delete[]
     
+    // tag::deleteAll[]
     /**
      - Delete all stored entitities
      
@@ -237,6 +250,7 @@ class RealmStorageService: StorageService {
             }
         }
     }
+    // end::deleteAll[]
     
     /**
      - Check if a note already exists in the db with the same identifier
@@ -270,8 +284,9 @@ class RealmStorageService: StorageService {
         return currentDate
     }
     
+    // tag::generateEncryptionKey[]
     /**
-     - Generate an encryption key for thr realm db
+     - Generate an encryption key for the realm db
      
      - Returns: An encryption key
      */
@@ -282,7 +297,9 @@ class RealmStorageService: StorageService {
         let data = Data(bytes: bytes, count: byteLength)
         return data
     }
+    // end::generateEncryptionKey[]
     
+    // tag::getEncryptionKey[]
     /**
      - Get the encryption key for the realm db
      
@@ -299,6 +316,7 @@ class RealmStorageService: StorageService {
         }
         return encryptionKey
     }
+    // end::getEncryptionKey[]
 }
 
 // extension to provide safe writes to the realm db
