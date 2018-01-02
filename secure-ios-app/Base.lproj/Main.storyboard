@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -206,7 +206,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pU-zk-TOq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3237.68115942029" y="218.47826086956525"/>
+            <point key="canvasLocation" x="3191" y="214"/>
+        </scene>
+        <!--Access Control View Controller-->
+        <scene sceneID="fSX-a7-eCG">
+            <objects>
+                <viewController storyboardIdentifier="AccessControlViewController" id="MCI-YB-EjZ" customClass="AccessControlViewController" customModule="secure_ios_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sfw-7V-9pm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ykW-Zw-NVd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="realmRoleNameCell" id="dDD-Ag-OBe">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dDD-Ag-OBe" id="DJN-hu-5LC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjH-SM-7Do">
+                                                    <rect key="frame" x="15" y="11" width="384" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Nu5-aW-whB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AjH-SM-7Do" firstAttribute="top" secondItem="DJN-hu-5LC" secondAttribute="topMargin" id="H3s-6G-Bro"/>
+                                                <constraint firstItem="AjH-SM-7Do" firstAttribute="bottom" secondItem="DJN-hu-5LC" secondAttribute="bottomMargin" id="Rc0-7y-xiy"/>
+                                                <constraint firstItem="AjH-SM-7Do" firstAttribute="leading" secondItem="DJN-hu-5LC" secondAttribute="leadingMargin" id="otY-hx-qzE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="AjH-SM-7Do" secondAttribute="trailing" id="xUC-tZ-PtV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ykW-Zw-NVd" firstAttribute="trailing" secondItem="3tF-bb-wJO" secondAttribute="trailing" id="3d3-qz-RJG"/>
+                            <constraint firstItem="ykW-Zw-NVd" firstAttribute="leading" secondItem="3tF-bb-wJO" secondAttribute="leading" id="3gT-VC-UXo"/>
+                            <constraint firstItem="ykW-Zw-NVd" firstAttribute="bottom" secondItem="3tF-bb-wJO" secondAttribute="bottom" id="756-0J-abD"/>
+                            <constraint firstItem="ykW-Zw-NVd" firstAttribute="top" secondItem="Sfw-7V-9pm" secondAttribute="top" id="ECo-RQ-HPJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3tF-bb-wJO"/>
+                    </view>
+                    <connections>
+                        <outlet property="rolesTable" destination="ykW-Zw-NVd" id="7k6-gt-6Sx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A98-Ny-qj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3185.507246376812" y="887.77173913043487"/>
         </scene>
         <!--Authentication Details View Controller-->
         <scene sceneID="UMd-LZ-fWp">
@@ -298,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWS-gM-bNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2953.6231884057975" y="213.58695652173915"/>
+            <point key="canvasLocation" x="4026" y="214"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="ku8-pY-PYa">
@@ -366,7 +423,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXM-z8-f4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260.8695652173915" y="73.369565217391312"/>
+            <point key="canvasLocation" x="1272" y="-716"/>
         </scene>
         <!--Device Trust View Controller-->
         <scene sceneID="Gwg-dH-ECy">
@@ -416,7 +473,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PyE-H1-Ugr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="663.768115942029" y="32.608695652173914"/>
+            <point key="canvasLocation" x="519" y="64"/>
         </scene>
     </scenes>
     <resources>

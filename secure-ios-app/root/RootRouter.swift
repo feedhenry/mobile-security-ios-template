@@ -22,6 +22,7 @@ protocol RootRouter {
     func launchAuthenticationView()
     func launchStorageView()
     func launchDeviceTrustView()
+    func launchAccessControlView()
 }
 
 class RootRouterImpl: RootRouter {
@@ -34,6 +35,7 @@ class RootRouterImpl: RootRouter {
     var authenticationRouter: AuthenticationRouter?
     var storageRouter: StorageRouter?
     var deviceTrustRouter: DeviceTrustRouter?
+    var accessControlRouter: AccessControlRouter?
     
     init(navViewController: UINavigationController, viewController: RootViewController, appComponents: AppComponents) {
         self.navViewController = navViewController
@@ -54,10 +56,11 @@ class RootRouterImpl: RootRouter {
     }
     
     func launchAuthenticationView() {
+        let authService = self.appComponents.resolveAuthService()
         if self.authenticationRouter == nil {
             self.authenticationRouter = AuthenticationBuilder(appComponents: self.appComponents).build()
         }
-        self.rootViewController.presentViewController(self.authenticationRouter!.viewController, true)
+        self.rootViewController.presentViewController(self.authenticationRouter!.initialViewController(identity: authService.currentIdentity()), true)
     }
     
     // Storage View
@@ -74,5 +77,17 @@ class RootRouterImpl: RootRouter {
             self.deviceTrustRouter = DeviceTrustBuilder(appComponents: self.appComponents).build()
         }
         self.rootViewController.presentViewController(self.deviceTrustRouter!.viewController, true)
+    }
+    
+    func launchAccessControlView() {
+        let authService = self.appComponents.resolveAuthService()
+        if authService.isLoggedIn() {
+            if self.accessControlRouter == nil {
+                self.accessControlRouter = AccessControlBuilder(appComponents: self.appComponents).build()
+            }
+            self.rootViewController.presentViewController(self.accessControlRouter!.viewController, true)
+        } else {
+            launchAuthenticationView()
+        }
     }
 }

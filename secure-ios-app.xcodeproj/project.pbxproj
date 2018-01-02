@@ -23,6 +23,8 @@
 		ABEDBC951FD04BF10027066A /* DeviceTrustBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC941FD04BF10027066A /* DeviceTrustBuilder.swift */; };
 		ABEDBC971FD04C830027066A /* DeviceTrustInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC961FD04C830027066A /* DeviceTrustInteractor.swift */; };
 		B302EA771FACD7EE00EAD340 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B302EA761FACD7EE00EAD340 /* HomeViewController.swift */; };
+		B30747981FE280AC00A7E159 /* AccessControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30747971FE280AC00A7E159 /* AccessControlViewController.swift */; };
+		B307479A1FE2828E00A7E159 /* AccessControlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30747991FE2828E00A7E159 /* AccessControlBuilder.swift */; };
 		B30BEBA11FB20F3F0008A171 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBA01FB20F3F0008A171 /* AppConfiguration.swift */; };
 		B30BEBA61FB229C40008A171 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B30BEBA51FB229C40008A171 /* AppConfig.plist */; };
 		B30BEBB21FB324800008A171 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBB11FB324800008A171 /* RootBuilder.swift */; };
@@ -40,6 +42,7 @@
 		B32CBD2E1FD0B61F008CFEF1 /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32CBD2D1FD0B61F008CFEF1 /* ViewHelper.swift */; };
 		B342DF351FB0C90700BBA05B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342DF341FB0C90700BBA05B /* RootViewController.swift */; };
 		B342DF381FB0CA9900BBA05B /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342DF371FB0CA9900BBA05B /* AuthenticationViewController.swift */; };
+		B36F5F471FFB9A3200CAB771 /* AccessControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F5F461FFB9A3200CAB771 /* AccessControlRouter.swift */; };
 		B37C63891FC323F300D52CD4 /* AuthenticationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C63881FC323F300D52CD4 /* AuthenticationDetailsViewController.swift */; };
 		B39FDB091FB2012C00C1EC0F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FDB081FB2012C00C1EC0F /* BaseViewController.swift */; };
 		B39FDB0B1FB2012F00C1EC0F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FDB0A1FB2012F00C1EC0F /* MenuViewController.swift */; };
@@ -91,6 +94,8 @@
 		ABEDBC961FD04C830027066A /* DeviceTrustInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTrustInteractor.swift; sourceTree = "<group>"; };
 		AD54EEC2CFFB1CC5C561CFAC /* Pods-secure-ios-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-secure-ios-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-secure-ios-app/Pods-secure-ios-app.debug.xcconfig"; sourceTree = "<group>"; };
 		B302EA761FACD7EE00EAD340 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B30747971FE280AC00A7E159 /* AccessControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessControlViewController.swift; sourceTree = "<group>"; };
+		B30747991FE2828E00A7E159 /* AccessControlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessControlBuilder.swift; sourceTree = "<group>"; };
 		B30BEBA01FB20F3F0008A171 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		B30BEBA51FB229C40008A171 /* AppConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppConfig.plist; sourceTree = "<group>"; };
 		B30BEBB11FB324800008A171 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 		B32CBD2D1FD0B61F008CFEF1 /* ViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
 		B342DF341FB0C90700BBA05B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		B342DF371FB0CA9900BBA05B /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		B36F5F461FFB9A3200CAB771 /* AccessControlRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessControlRouter.swift; sourceTree = "<group>"; };
 		B37C63881FC323F300D52CD4 /* AuthenticationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDetailsViewController.swift; sourceTree = "<group>"; };
 		B39FDB081FB2012C00C1EC0F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B39FDB0A1FB2012F00C1EC0F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +196,16 @@
 				ABEDBC961FD04C830027066A /* DeviceTrustInteractor.swift */,
 			);
 			path = deviceTrust;
+			sourceTree = "<group>";
+		};
+		B30747961FE2808400A7E159 /* accesscontrol */ = {
+			isa = PBXGroup;
+			children = (
+				B30747971FE280AC00A7E159 /* AccessControlViewController.swift */,
+				B30747991FE2828E00A7E159 /* AccessControlBuilder.swift */,
+				B36F5F461FFB9A3200CAB771 /* AccessControlRouter.swift */,
+			);
+			path = accesscontrol;
 			sourceTree = "<group>";
 		};
 		B30BEB9E1FB208F20008A171 /* menu */ = {
@@ -297,6 +313,7 @@
 		B3E21B411FAC956E00082CF7 /* secure-ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				B30747961FE2808400A7E159 /* accesscontrol */,
 				B30BEBEC1FB5B7290008A171 /* model */,
 				B30BEBE41FB4A72E0008A171 /* services */,
 				B30BEBE11FB4A7100008A171 /* di */,
@@ -665,6 +682,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B30BEBEB1FB5B40D0008A171 /* Logger.swift in Sources */,
+				B30747981FE280AC00A7E159 /* AccessControlViewController.swift in Sources */,
 				B342DF351FB0C90700BBA05B /* RootViewController.swift in Sources */,
 				B30BEBBA1FB365AB0008A171 /* HomeBuilder.swift in Sources */,
 				B37C63891FC323F300D52CD4 /* AuthenticationDetailsViewController.swift in Sources */,
@@ -673,6 +691,7 @@
 				ABEDBC7C1FD040490027066A /* DeviceTrustService.swift in Sources */,
 				ABEDBC911FD04AF90027066A /* DeviceTrustViewController.swift in Sources */,
 				B3E21B4B1FAC956E00082CF7 /* secure_ios_app.xcdatamodeld in Sources */,
+				B36F5F471FFB9A3200CAB771 /* AccessControlRouter.swift in Sources */,
 				B32CBD2E1FD0B61F008CFEF1 /* ViewHelper.swift in Sources */,
 				B30BEBEE1FB5B7770008A171 /* Identity.swift in Sources */,
 				ABEDBC8F1FD04A7C0027066A /* Detector.swift in Sources */,
@@ -686,6 +705,7 @@
 				B342DF381FB0CA9900BBA05B /* AuthenticationViewController.swift in Sources */,
 				B39FDB0B1FB2012F00C1EC0F /* MenuViewController.swift in Sources */,
 				B30BEBBC1FB367C80008A171 /* AuthenticationRouter.swift in Sources */,
+				B307479A1FE2828E00A7E159 /* AccessControlBuilder.swift in Sources */,
 				ABEDBC951FD04BF10027066A /* DeviceTrustBuilder.swift in Sources */,
 				B30BEBE31FB4A7290008A171 /* AppComponents.swift in Sources */,
 				B3E21B431FAC956E00082CF7 /* AppDelegate.swift in Sources */,

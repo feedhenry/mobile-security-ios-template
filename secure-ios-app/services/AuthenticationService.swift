@@ -17,6 +17,7 @@ protocol AuthenticationService {
     func resumeAuth(url: URL) -> Bool
     func isLoggedIn() -> Bool
     func performLogout(onCompleted: @escaping (Error?) -> Void)
+    func currentIdentity() -> Identity?
 }
 
 class AppAuthAuthenticationService: AuthenticationService {
@@ -101,6 +102,10 @@ class AppAuthAuthenticationService: AuthenticationService {
                 }
             })
         }
+    }
+    
+    func currentIdentity() -> Identity? {
+        return self.identify
     }
     
     fileprivate func assignAuthState(authState: OIDAuthState?) {
