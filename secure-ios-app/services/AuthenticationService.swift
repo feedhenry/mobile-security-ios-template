@@ -41,7 +41,7 @@ class AppAuthAuthenticationService: AuthenticationService {
     
     func performAuthentication(presentingViewController viewController:UIViewController, onCompleted: @escaping (Identity?, Error?) -> Void) {
         self.onCompleted = onCompleted
-        
+                
         let oidServiceConfiguration = OIDServiceConfiguration(authorizationEndpoint: self.authServerConfiguration.authEndpoint, tokenEndpoint: self.authServerConfiguration.tokenEndpoint)
         let oidAuthRequest = OIDAuthorizationRequest(configuration: oidServiceConfiguration, clientId: self.authServerConfiguration.clientId, scopes: [OIDScopeOpenID, OIDScopeProfile], redirectURL: REDIRECT_URL!, responseType: OIDResponseTypeCode, additionalParameters: nil)
         
