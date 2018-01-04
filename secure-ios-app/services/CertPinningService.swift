@@ -59,6 +59,7 @@ class iosCertPinningService: CertPinningService {
      */
     func checkPinningFailed(error: Error) -> Bool {
         if let error = error as? NSError {
+            // check for the alamofire cancelled/error code 999 to check if there was an SSL issue
             if error.code == NSURLErrorCancelled {
                 return true
             } else {
