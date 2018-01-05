@@ -18,6 +18,7 @@ target 'secure-ios-app' do
   target 'secure-ios-appTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RealmSwift'
   end
 
   target 'secure-ios-appUITests' do

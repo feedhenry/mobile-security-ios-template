@@ -13,7 +13,14 @@ class AuthenticationDetailsViewController: UIViewController, UITableViewDataSour
     
     @IBOutlet weak var userInfoView: UITableView!
     
-    var userIdentify: Identity = Identity()
+    var userIdentify: Identity = Identity() {
+        didSet {
+            if let tableView = self.userInfoView {
+                tableView.reloadData()
+            }
+        }
+    }
+    
     var navbarItem: UINavigationItem?
     var authListener: AuthListener?
     
@@ -54,11 +61,13 @@ class AuthenticationDetailsViewController: UIViewController, UITableViewDataSour
     }
     
     func showLogoutBtn() {
-        guard let rootViewController = self.parent?.parent else {
+        guard  let rootViewController = self.parent?.parent else {
             return
         }
-        self.navbarItem = rootViewController.navigationItem
-        self.navbarItem!.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        if rootViewController.isKind(of: RootViewController.self) {
+            self.navbarItem = rootViewController.navigationItem
+            self.navbarItem!.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        }
     }
     
     func removeLogoutBtn() {

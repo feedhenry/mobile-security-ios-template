@@ -5,12 +5,12 @@
 	<key>api-server</key>
 	<dict>
 		<key>server-url</key>
-		<string>https://api-server-mobile-security.osm1.skunkhenry.com</string>
+		<string>https://api.security.feedhenry.org</string>
 	</dict>
 	<key>auth-server</key>
 	<dict>
 		<key>auth-server-url</key>
-		<string>https://keycloak-openshift-mobile-security.osm1.skunkhenry.com</string>
+		<string>https://keycloak.security.feedhenry.org</string>
 		<key>realm-id</key>
 		<string>secure-app</string>
 		<key>client-id</key>

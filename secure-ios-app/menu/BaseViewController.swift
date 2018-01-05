@@ -19,6 +19,8 @@ class BaseViewController: UIViewController {
     
     var arrayMenuOptions = [MenuItem]()
     
+    var menuVC: MenuViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addSlideMenuButton()
@@ -66,25 +68,14 @@ class BaseViewController: UIViewController {
             
             sender.tag = 0;
             
-            let viewMenuBack : UIView = view.subviews.last!
-            
-            UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                var frameMenu : CGRect = viewMenuBack.frame
-                frameMenu.origin.x = -1 * UIScreen.main.bounds.size.width
-                viewMenuBack.frame = frameMenu
-                viewMenuBack.layoutIfNeeded()
-                viewMenuBack.backgroundColor = UIColor.clear
-            }, completion: { (finished) -> Void in
-                viewMenuBack.removeFromSuperview()
-            })
-            
+            menuVC.disappearWithAnimation()
             return
         }
         
         sender.isEnabled = false
         sender.tag = 10
         
-        let menuVC : MenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        menuVC = self.storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
         menuVC.setMenuItems(arrayMenuOptions)
         menuVC.btnMenu = sender
         menuVC.delegate = self.menuDelegate

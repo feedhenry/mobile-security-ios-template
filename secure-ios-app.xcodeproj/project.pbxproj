@@ -23,6 +23,8 @@
 		ABEDBC951FD04BF10027066A /* DeviceTrustBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC941FD04BF10027066A /* DeviceTrustBuilder.swift */; };
 		ABEDBC971FD04C830027066A /* DeviceTrustInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC961FD04C830027066A /* DeviceTrustInteractor.swift */; };
 		B302EA771FACD7EE00EAD340 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B302EA761FACD7EE00EAD340 /* HomeViewController.swift */; };
+		B30747981FE280AC00A7E159 /* AccessControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30747971FE280AC00A7E159 /* AccessControlViewController.swift */; };
+		B307479A1FE2828E00A7E159 /* AccessControlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30747991FE2828E00A7E159 /* AccessControlBuilder.swift */; };
 		B30BEBA11FB20F3F0008A171 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBA01FB20F3F0008A171 /* AppConfiguration.swift */; };
 		B30BEBA61FB229C40008A171 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B30BEBA51FB229C40008A171 /* AppConfig.plist */; };
 		B30BEBB21FB324800008A171 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBB11FB324800008A171 /* RootBuilder.swift */; };
@@ -37,12 +39,23 @@
 		B30BEBE81FB4A89E0008A171 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBE71FB4A89E0008A171 /* AuthenticationService.swift */; };
 		B30BEBEB1FB5B40D0008A171 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBEA1FB5B40D0008A171 /* Logger.swift */; };
 		B30BEBEE1FB5B7770008A171 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30BEBED1FB5B7770008A171 /* Identity.swift */; };
+		B322807D1FFE333700A0B201 /* AppConfigurationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322807C1FFE333700A0B201 /* AppConfigurationTest.swift */; };
 		B32CBD2E1FD0B61F008CFEF1 /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32CBD2D1FD0B61F008CFEF1 /* ViewHelper.swift */; };
 		B342DF351FB0C90700BBA05B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342DF341FB0C90700BBA05B /* RootViewController.swift */; };
 		B342DF381FB0CA9900BBA05B /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342DF371FB0CA9900BBA05B /* AuthenticationViewController.swift */; };
+		B36F5F471FFB9A3200CAB771 /* AccessControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F5F461FFB9A3200CAB771 /* AccessControlRouter.swift */; };
+		B36F5F4C1FFCFE1000CAB771 /* IdentityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F5F4B1FFCFE1000CAB771 /* IdentityTest.swift */; };
+		B36F5F4F1FFD02A000CAB771 /* DeviceTrustServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F5F4E1FFD02A000CAB771 /* DeviceTrustServiceTest.swift */; };
+		B36F5F511FFD03BB00CAB771 /* StorageServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F5F501FFD03BB00CAB771 /* StorageServiceTest.swift */; };
 		B37C63891FC323F300D52CD4 /* AuthenticationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C63881FC323F300D52CD4 /* AuthenticationDetailsViewController.swift */; };
 		B39FDB091FB2012C00C1EC0F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FDB081FB2012C00C1EC0F /* BaseViewController.swift */; };
 		B39FDB0B1FB2012F00C1EC0F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FDB0A1FB2012F00C1EC0F /* MenuViewController.swift */; };
+		B3A410AA1FFE5AD800A32FF0 /* AccessControlViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A410A91FFE5AD800A32FF0 /* AccessControlViewControllerTest.swift */; };
+		B3A410AD1FFE74D700A32FF0 /* RootViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A410AC1FFE74D700A32FF0 /* RootViewControllerTest.swift */; };
+		B3A410B01FFE86DC00A32FF0 /* StorageViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A410AF1FFE86DC00A32FF0 /* StorageViewControllerTest.swift */; };
+		B3A410B31FFE9F2400A32FF0 /* AuthenticationViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A410B21FFE9F2400A32FF0 /* AuthenticationViewControllerTest.swift */; };
+		B3A410B51FFEA0A600A32FF0 /* AuthenticationDetailsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A410B41FFEA0A600A32FF0 /* AuthenticationDetailsViewControllerTest.swift */; };
+		B3A410B81FFEDCF100A32FF0 /* DeviceTrustViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A410B71FFEDCF100A32FF0 /* DeviceTrustViewControllerTest.swift */; };
 		B3E21B431FAC956E00082CF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E21B421FAC956E00082CF7 /* AppDelegate.swift */; };
 		B3E21B481FAC956E00082CF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E21B461FAC956E00082CF7 /* Main.storyboard */; };
 		B3E21B4B1FAC956E00082CF7 /* secure_ios_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3E21B491FAC956E00082CF7 /* secure_ios_app.xcdatamodeld */; };
@@ -91,6 +104,8 @@
 		ABEDBC961FD04C830027066A /* DeviceTrustInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTrustInteractor.swift; sourceTree = "<group>"; };
 		AD54EEC2CFFB1CC5C561CFAC /* Pods-secure-ios-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-secure-ios-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-secure-ios-app/Pods-secure-ios-app.debug.xcconfig"; sourceTree = "<group>"; };
 		B302EA761FACD7EE00EAD340 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B30747971FE280AC00A7E159 /* AccessControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessControlViewController.swift; sourceTree = "<group>"; };
+		B30747991FE2828E00A7E159 /* AccessControlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessControlBuilder.swift; sourceTree = "<group>"; };
 		B30BEBA01FB20F3F0008A171 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		B30BEBA51FB229C40008A171 /* AppConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppConfig.plist; sourceTree = "<group>"; };
 		B30BEBB11FB324800008A171 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
@@ -106,12 +121,23 @@
 		B30BEBE91FB4ABFF0008A171 /* secure-ios-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "secure-ios-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		B30BEBEA1FB5B40D0008A171 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B30BEBED1FB5B7770008A171 /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
+		B322807C1FFE333700A0B201 /* AppConfigurationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurationTest.swift; sourceTree = "<group>"; };
 		B32CBD2D1FD0B61F008CFEF1 /* ViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
 		B342DF341FB0C90700BBA05B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		B342DF371FB0CA9900BBA05B /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		B36F5F461FFB9A3200CAB771 /* AccessControlRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessControlRouter.swift; sourceTree = "<group>"; };
+		B36F5F4B1FFCFE1000CAB771 /* IdentityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityTest.swift; sourceTree = "<group>"; };
+		B36F5F4E1FFD02A000CAB771 /* DeviceTrustServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTrustServiceTest.swift; sourceTree = "<group>"; };
+		B36F5F501FFD03BB00CAB771 /* StorageServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceTest.swift; sourceTree = "<group>"; };
 		B37C63881FC323F300D52CD4 /* AuthenticationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDetailsViewController.swift; sourceTree = "<group>"; };
 		B39FDB081FB2012C00C1EC0F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B39FDB0A1FB2012F00C1EC0F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		B3A410A91FFE5AD800A32FF0 /* AccessControlViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessControlViewControllerTest.swift; sourceTree = "<group>"; };
+		B3A410AC1FFE74D700A32FF0 /* RootViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewControllerTest.swift; sourceTree = "<group>"; };
+		B3A410AF1FFE86DC00A32FF0 /* StorageViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewControllerTest.swift; sourceTree = "<group>"; };
+		B3A410B21FFE9F2400A32FF0 /* AuthenticationViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewControllerTest.swift; sourceTree = "<group>"; };
+		B3A410B41FFEA0A600A32FF0 /* AuthenticationDetailsViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDetailsViewControllerTest.swift; sourceTree = "<group>"; };
+		B3A410B71FFEDCF100A32FF0 /* DeviceTrustViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTrustViewControllerTest.swift; sourceTree = "<group>"; };
 		B3E21B3F1FAC956E00082CF7 /* secure-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "secure-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E21B421FAC956E00082CF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3E21B471FAC956E00082CF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -192,6 +218,16 @@
 			path = deviceTrust;
 			sourceTree = "<group>";
 		};
+		B30747961FE2808400A7E159 /* accesscontrol */ = {
+			isa = PBXGroup;
+			children = (
+				B30747971FE280AC00A7E159 /* AccessControlViewController.swift */,
+				B30747991FE2828E00A7E159 /* AccessControlBuilder.swift */,
+				B36F5F461FFB9A3200CAB771 /* AccessControlRouter.swift */,
+			);
+			path = accesscontrol;
+			sourceTree = "<group>";
+		};
 		B30BEB9E1FB208F20008A171 /* menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +296,31 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		B322807B1FFE331E00A0B201 /* configurations */ = {
+			isa = PBXGroup;
+			children = (
+				B322807C1FFE333700A0B201 /* AppConfigurationTest.swift */,
+			);
+			path = configurations;
+			sourceTree = "<group>";
+		};
+		B36F5F4A1FFCFDE500CAB771 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B36F5F4B1FFCFE1000CAB771 /* IdentityTest.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		B36F5F4D1FFD027F00CAB771 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				B36F5F4E1FFD02A000CAB771 /* DeviceTrustServiceTest.swift */,
+				B36F5F501FFD03BB00CAB771 /* StorageServiceTest.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
 		B39FDB021FB1FE9300C1EC0F /* authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +331,47 @@
 				B37C63881FC323F300D52CD4 /* AuthenticationDetailsViewController.swift */,
 			);
 			path = authentication;
+			sourceTree = "<group>";
+		};
+		B3A410A81FFE5ABF00A32FF0 /* accesscontrol */ = {
+			isa = PBXGroup;
+			children = (
+				B3A410A91FFE5AD800A32FF0 /* AccessControlViewControllerTest.swift */,
+			);
+			path = accesscontrol;
+			sourceTree = "<group>";
+		};
+		B3A410AB1FFE74C500A32FF0 /* root */ = {
+			isa = PBXGroup;
+			children = (
+				B3A410AC1FFE74D700A32FF0 /* RootViewControllerTest.swift */,
+			);
+			path = root;
+			sourceTree = "<group>";
+		};
+		B3A410AE1FFE86C500A32FF0 /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				B3A410AF1FFE86DC00A32FF0 /* StorageViewControllerTest.swift */,
+			);
+			path = storage;
+			sourceTree = "<group>";
+		};
+		B3A410B11FFE9F1000A32FF0 /* authentication */ = {
+			isa = PBXGroup;
+			children = (
+				B3A410B21FFE9F2400A32FF0 /* AuthenticationViewControllerTest.swift */,
+				B3A410B41FFEA0A600A32FF0 /* AuthenticationDetailsViewControllerTest.swift */,
+			);
+			path = authentication;
+			sourceTree = "<group>";
+		};
+		B3A410B61FFEDCD300A32FF0 /* deviceTrust */ = {
+			isa = PBXGroup;
+			children = (
+				B3A410B71FFEDCF100A32FF0 /* DeviceTrustViewControllerTest.swift */,
+			);
+			path = deviceTrust;
 			sourceTree = "<group>";
 		};
 		B3E21B361FAC956E00082CF7 = {
@@ -297,6 +399,7 @@
 		B3E21B411FAC956E00082CF7 /* secure-ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				B30747961FE2808400A7E159 /* accesscontrol */,
 				B30BEBEC1FB5B7290008A171 /* model */,
 				B30BEBE41FB4A72E0008A171 /* services */,
 				B30BEBE11FB4A7100008A171 /* di */,
@@ -322,6 +425,14 @@
 		B3E21B591FAC956E00082CF7 /* secure-ios-appTests */ = {
 			isa = PBXGroup;
 			children = (
+				B3A410B61FFEDCD300A32FF0 /* deviceTrust */,
+				B3A410B11FFE9F1000A32FF0 /* authentication */,
+				B3A410AE1FFE86C500A32FF0 /* storage */,
+				B3A410AB1FFE74C500A32FF0 /* root */,
+				B3A410A81FFE5ABF00A32FF0 /* accesscontrol */,
+				B322807B1FFE331E00A0B201 /* configurations */,
+				B36F5F4D1FFD027F00CAB771 /* services */,
+				B36F5F4A1FFCFDE500CAB771 /* model */,
 				B3E21B5A1FAC956E00082CF7 /* secure_ios_appTests.swift */,
 				B3E21B5C1FAC956E00082CF7 /* Info.plist */,
 			);
@@ -665,6 +776,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B30BEBEB1FB5B40D0008A171 /* Logger.swift in Sources */,
+				B30747981FE280AC00A7E159 /* AccessControlViewController.swift in Sources */,
 				B342DF351FB0C90700BBA05B /* RootViewController.swift in Sources */,
 				B30BEBBA1FB365AB0008A171 /* HomeBuilder.swift in Sources */,
 				B37C63891FC323F300D52CD4 /* AuthenticationDetailsViewController.swift in Sources */,
@@ -673,6 +785,7 @@
 				ABEDBC7C1FD040490027066A /* DeviceTrustService.swift in Sources */,
 				ABEDBC911FD04AF90027066A /* DeviceTrustViewController.swift in Sources */,
 				B3E21B4B1FAC956E00082CF7 /* secure_ios_app.xcdatamodeld in Sources */,
+				B36F5F471FFB9A3200CAB771 /* AccessControlRouter.swift in Sources */,
 				B32CBD2E1FD0B61F008CFEF1 /* ViewHelper.swift in Sources */,
 				B30BEBEE1FB5B7770008A171 /* Identity.swift in Sources */,
 				ABEDBC8F1FD04A7C0027066A /* Detector.swift in Sources */,
@@ -686,6 +799,7 @@
 				B342DF381FB0CA9900BBA05B /* AuthenticationViewController.swift in Sources */,
 				B39FDB0B1FB2012F00C1EC0F /* MenuViewController.swift in Sources */,
 				B30BEBBC1FB367C80008A171 /* AuthenticationRouter.swift in Sources */,
+				B307479A1FE2828E00A7E159 /* AccessControlBuilder.swift in Sources */,
 				ABEDBC951FD04BF10027066A /* DeviceTrustBuilder.swift in Sources */,
 				B30BEBE31FB4A7290008A171 /* AppComponents.swift in Sources */,
 				B3E21B431FAC956E00082CF7 /* AppDelegate.swift in Sources */,
@@ -705,7 +819,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3A410AD1FFE74D700A32FF0 /* RootViewControllerTest.swift in Sources */,
+				B3A410B81FFEDCF100A32FF0 /* DeviceTrustViewControllerTest.swift in Sources */,
 				B3E21B5B1FAC956E00082CF7 /* secure_ios_appTests.swift in Sources */,
+				B36F5F511FFD03BB00CAB771 /* StorageServiceTest.swift in Sources */,
+				B3A410AA1FFE5AD800A32FF0 /* AccessControlViewControllerTest.swift in Sources */,
+				B36F5F4F1FFD02A000CAB771 /* DeviceTrustServiceTest.swift in Sources */,
+				B3A410B51FFEA0A600A32FF0 /* AuthenticationDetailsViewControllerTest.swift in Sources */,
+				B3A410B31FFE9F2400A32FF0 /* AuthenticationViewControllerTest.swift in Sources */,
+				B322807D1FFE333700A0B201 /* AppConfigurationTest.swift in Sources */,
+				B3A410B01FFE86DC00A32FF0 /* StorageViewControllerTest.swift in Sources */,
+				B36F5F4C1FFCFE1000CAB771 /* IdentityTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

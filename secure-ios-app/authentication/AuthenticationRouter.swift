@@ -14,6 +14,7 @@ protocol AuthenticationRouter {
     var detailsViewController: AuthenticationDetailsViewController {get}
     func navigateToUserDetailsView(withIdentify identify: Identity?, andError error: Error?)
     func leaveUserDetailsView(withError error: Error?)
+    func initialViewController(identity: Identity?) -> UIViewController
 }
 
 class AuthenticationRouterImpl: AuthenticationRouter {
@@ -43,5 +44,14 @@ class AuthenticationRouterImpl: AuthenticationRouter {
             Logger.debug("user logged out successfully")
             self.detailsViewController.removeView()
         }
+    }
+    
+    func initialViewController(identity: Identity?) -> UIViewController {
+        if let idn = identity {
+            // if the user is already logged in, add the details atop of the authentication view
+            self.detailsViewController.userIdentify = idn
+            ViewHelper.showChildViewController(parentViewController: self.viewController, childViewController: self.detailsViewController)
+        }
+        return self.viewController
     }
 }
