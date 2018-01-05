@@ -170,7 +170,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-pattern" translatesAutoresizingMaskIntoConstraints="NO" id="vqp-hn-nxs">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIO-9y-Yom">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIO-9y-Yom">
                                 <rect key="frame" x="10" y="663" width="394" height="42"/>
                                 <color key="backgroundColor" red="0.89054404149999999" green="0.2285261012" blue="0.22818006969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>

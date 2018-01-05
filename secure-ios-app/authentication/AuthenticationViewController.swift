@@ -27,10 +27,6 @@ class AuthenticationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // perform cert pinning of the auth server on load
-        self.performPreCertCheck()
-
         // Do any additional setup after loading the view.
     }
 
@@ -40,29 +36,13 @@ class AuthenticationViewController: UIViewController {
     }
     
     @IBAction func onAuthButtonTapped(_ sender: UIButton) {
-        if let listener = self.authListener {
-            listener.startAuth(presentingViewController: self)
-        }
-    }
-    
-    func showError(title: String, error: Error) {
-        ViewHelper.showErrorBannerMessage(from: self, title: title, message: error.localizedDescription)
-    }
-    
-    /*
-     - Calls the cert pinning service to perform a preflight check on the auth server to ensure the channel is clear before continuing.
-     
-     - Parameter url - the url of the host to check. If no URL is provided, the auth server will be tested by default.
-     
-     - Parameter onCompleted - a completion handler that returns the result of the cert check. A true value means that the cert pinning validated successfully. A false value means there was a validation issue which resulted in a pin verification failure.
-     */
-    func performPreCertCheck() {
+        // perform cert pinning on the auth server when the auth button is pressed
         if let listener = self.authListener {
             listener.performPreCertCheck() {
                 validCert in
                 if(validCert) {
-                    // cert is valid
-                    self.authenticationButton.isEnabled = true
+                    // cert is valid, continue with login
+                    listener.startAuth(presentingViewController: self)
                 } else {
                     // pin validation issues, update the UI to notify the user and prevent authentication.
                     self.authenticationButton.isHidden = true
@@ -73,6 +53,10 @@ class AuthenticationViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func showError(title: String, error: Error) {
+        ViewHelper.showErrorBannerMessage(from: self, title: title, message: error.localizedDescription)
     }
     
     /*
