@@ -18,7 +18,16 @@ class AccessControlViewController: UIViewController, UITableViewDataSource, UITa
     
     let allRealmRoles = [RealmRoles.apiAccess, RealmRoles.mobileUser, RealmRoles.superUser]
     
-    var userIdentity: Identity?
+    var userIdentity: Identity? {
+        didSet {
+            if rolesTable == nil {
+                return
+            }
+            if let identity = self.userIdentity {
+                highlightUserRealmRoles(identity: identity)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,17 +52,19 @@ class AccessControlViewController: UIViewController, UITableViewDataSource, UITa
     func highlightUserRealmRoles(identity: Identity) {
         for realmRole in self.allRealmRoles {
             if identity.hasRole(role: realmRole.roleName) {
-                highlightRole(role: realmRole)
+                setRoleAccessoryType(role: realmRole, type: UITableViewCellAccessoryType.checkmark)
+            } else {
+                setRoleAccessoryType(role: realmRole, type: UITableViewCellAccessoryType.none)
             }
         }
     }
     
-    func highlightRole(role: RealmRole) {
+    func setRoleAccessoryType(role: RealmRole, type: UITableViewCellAccessoryType) {
         let rowIndex = self.allRealmRoles.index(of: role)!
         let indexPath = IndexPath(row: rowIndex, section: 0)
         let roleCell = self.rolesTable.cellForRow(at: indexPath)
         if let cell = roleCell {
-            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+            cell.accessoryType = type
         }
     }
 

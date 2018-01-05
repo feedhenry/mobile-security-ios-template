@@ -20,8 +20,7 @@ protocol StorageService {
 }
 
 class RealmStorageService: StorageService {
-
-    let realm: Realm
+    
     let encryptionKey: Data
     let keychainWrapper: KeychainWrapper
 
@@ -34,9 +33,6 @@ class RealmStorageService: StorageService {
     init(kcWrapper: KeychainWrapper, encryptionKey: Data) {
         self.keychainWrapper = kcWrapper
         self.encryptionKey = encryptionKey
-        
-        let encryptionConfig = Realm.Configuration(encryptionKey: self.encryptionKey)
-        self.realm = try! Realm(configuration: encryptionConfig)
     }
     // end::init[]
     
@@ -50,7 +46,7 @@ class RealmStorageService: StorageService {
         DispatchQueue.global(qos: .background).async {
             do {
                 // create a new thread confined realm
-                let realm = try Realm(configuration: Realm.Configuration(encryptionKey: self.encryptionKey))
+                let realm = try self.getRealmInstance()
                 
                 // synchronization of Realm instance to the latest version on the background thread
                 realm.refresh()
@@ -63,7 +59,7 @@ class RealmStorageService: StorageService {
                 
                 // return note to the view controller on the main thread
                 DispatchQueue.main.async() {
-                    let realm = try! Realm(configuration: Realm.Configuration(encryptionKey: self.encryptionKey))
+                    let realm = try! self.getRealmInstance()
                     
                     // get the notes using the thread safe reference
                     guard let notes = realm.resolve(threadSafeNotes) else {
@@ -111,11 +107,11 @@ class RealmStorageService: StorageService {
             // create the note in the db
             do {
                 // create a new thread confined realm
-                let realm = try Realm(configuration: Realm.Configuration(encryptionKey: self.encryptionKey))
+                let realm = try self.getRealmInstance()
                 try realm.safeWrite {
                     realm.add(note)
                     
-                onComplete(nil, note)
+                onComplete(nil, note.clone())
                 }
             } catch {
                 onComplete(error, nil)
@@ -135,7 +131,7 @@ class RealmStorageService: StorageService {
         DispatchQueue.global(qos: .background).async {
             do {
                 // create a new thread confined realm
-                let realm = try Realm(configuration: Realm.Configuration(encryptionKey: self.encryptionKey))
+                let realm = try self.getRealmInstance()
                 
                 // retrieve the notes from realm
                 let noteResult = realm.objects(Note.self).filter("id = \(identifier)")
@@ -145,7 +141,7 @@ class RealmStorageService: StorageService {
                 
                 // return note to the view controller on the main thread
                 DispatchQueue.main.async() {
-                    let realm = try! Realm(configuration: Realm.Configuration(encryptionKey: self.encryptionKey))
+                    let realm = try! self.getRealmInstance()
                         
                     // get the notes using the thread safe reference
                     guard let notes = realm.resolve(threadSafeNotes) else {
@@ -155,7 +151,7 @@ class RealmStorageService: StorageService {
                     // extract the note from the list
                     let note = notes.first
                     
-                    onComplete(nil, note)
+                    onComplete(nil, note?.clone())
                 }
             } catch {
                 onComplete(error, nil)
@@ -177,7 +173,7 @@ class RealmStorageService: StorageService {
         DispatchQueue.global(qos: .background).async {
             do {
                 // create a new thread confined realm
-                let realm = try Realm(configuration: Realm.Configuration(encryptionKey: self.encryptionKey))
+                let realm = try self.getRealmInstance()
                 
                 // get the existing note to update
                 let notes = realm.objects(Note.self).filter("id = \(identifier)")
@@ -188,7 +184,7 @@ class RealmStorageService: StorageService {
                     note?.title = title
                     note?.content = content
                 }
-                onComplete(nil, note)
+                onComplete(nil, note?.clone())
             } catch {
                 onComplete(error, nil)
             }
@@ -207,17 +203,18 @@ class RealmStorageService: StorageService {
         DispatchQueue.global(qos: .background).async {
             do {
                 // create a new thread confined realm
-                let realm = try Realm(configuration: Realm.Configuration(encryptionKey: self.encryptionKey))
+                let realm = try self.getRealmInstance()
                 
                 // get the note to delete
                 let noteToDeleteResult = realm.objects(Note.self).filter("id = \(identifier)")
                 let note = noteToDeleteResult.first
+                let returnNote = note?.clone()
                 
                 // delete the note
                 try realm.write {
                     realm.delete((note)!)
                 }
-                onComplete(nil, note)
+                onComplete(nil, returnNote)
             } catch {
                 onComplete(error, nil)
             }
@@ -236,7 +233,7 @@ class RealmStorageService: StorageService {
         DispatchQueue.global(qos: .background).async {
             do {
                 // create a new thread confined realm
-                let realm = try Realm(configuration: Realm.Configuration(encryptionKey: self.encryptionKey))
+                let realm = try self.getRealmInstance()
         
                 let notes = realm.objects(Note.self)
                 
@@ -252,6 +249,11 @@ class RealmStorageService: StorageService {
     }
     // end::deleteAll[]
     
+    func getRealmInstance() throws -> Realm {
+        let realm = try Realm(configuration: Realm.Configuration(encryptionKey: self.encryptionKey))
+        return realm
+    }
+    
     /**
      - Check if a note already exists in the db with the same identifier
      
@@ -260,7 +262,8 @@ class RealmStorageService: StorageService {
      - Returns: true/false based on if a note with the same identifier already exists in the db
      */
     fileprivate func isIdentifierUnique(identifier: Int) -> Bool {
-        let identifiers = self.realm.objects(Note.self).filter("id = \(identifier)")
+        let realm = try! self.getRealmInstance()
+        let identifiers = realm.objects(Note.self).filter("id = \(identifier)")
         return identifiers.count == 0
     }
     

@@ -47,8 +47,9 @@ class AuthenticationRouterImpl: AuthenticationRouter {
     }
     
     func initialViewController(identity: Identity?) -> UIViewController {
-        if identity != nil {
+        if let idn = identity {
             // if the user is already logged in, add the details atop of the authentication view
+            self.detailsViewController.userIdentify = idn
             ViewHelper.showChildViewController(parentViewController: self.viewController, childViewController: self.detailsViewController)
         }
         return self.viewController

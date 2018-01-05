@@ -85,7 +85,9 @@ class RootRouterImpl: RootRouter {
             if self.accessControlRouter == nil {
                 self.accessControlRouter = AccessControlBuilder(appComponents: self.appComponents).build()
             }
-            self.rootViewController.presentViewController(self.accessControlRouter!.viewController, true)
+            let acVC = self.accessControlRouter!.viewController
+            self.rootViewController.presentViewController(acVC, true)
+            acVC.userIdentity = authService.currentIdentity()
         } else {
             launchAuthenticationView()
         }

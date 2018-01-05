@@ -28,6 +28,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     /** Delegate of the MenuVC */
     var delegate: DrawerMenuDelegate?
+    
+    /** If the menu is visible. Read-only **/
+    private(set) var isOpen: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +74,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
             self.btnMenu.isEnabled = true
+            self.isOpen = true
         }, completion:nil)
     }
     
@@ -79,6 +83,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.view.frame = CGRect(x: -UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height)
             self.view.layoutIfNeeded()
             self.view.backgroundColor = UIColor.clear
+            self.isOpen = false
         }, completion: { (finished) -> Void in
             self.view.removeFromSuperview()
             self.removeFromParentViewController()
