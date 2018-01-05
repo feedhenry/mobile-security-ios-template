@@ -8,6 +8,12 @@ machine:
     OS: "11.1"
     GYM_CODE_SIGNING_IDENTITY: "iPhone Distribution: Red Hat, Inc."
 
+dependencies:
+  pre:
+    - /usr/libexec/PlistBuddy -c "Set :CFBundleVersion 1.$CIRCLE_BUILD_NUM" "secure-ios-app/Info.plist"
+    - /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString 1.$CIRCLE_BUILD_NUM" "secure-ios-app/Info.plist"
+    - echo "Set app version to $(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' 'secure-ios-app/Info.plist')"
+
 test:
   override:
     - set -o pipefail &&
