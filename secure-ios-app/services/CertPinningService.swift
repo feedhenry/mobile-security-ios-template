@@ -25,6 +25,7 @@ class iosCertPinningService: CertPinningService {
         self.appConfiguration = appConfiguration
     }
     
+    // tag::performValidCertCheck[]
     /*
      - Checks if the servers presented cert matches a pin from the pinset
      
@@ -49,7 +50,9 @@ class iosCertPinningService: CertPinningService {
             }
         })
     }
+    // end::performValidCertCheck[]
     
+    // tag::checkPinningFailed[]
     /*
      - Checks if the presented error was caused by a pinning validation failure
      
@@ -68,4 +71,5 @@ class iosCertPinningService: CertPinningService {
             }
         }
     }
+    // end::checkPinningFailed[]
 }

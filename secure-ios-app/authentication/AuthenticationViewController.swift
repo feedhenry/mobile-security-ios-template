@@ -35,6 +35,7 @@ class AuthenticationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // tag::onAuthButtonTapped[]
     @IBAction func onAuthButtonTapped(_ sender: UIButton) {
         // perform cert pinning on the auth server when the auth button is pressed
         if let listener = self.authListener {
@@ -54,6 +55,7 @@ class AuthenticationViewController: UIViewController {
             }
         }
     }
+    // end::onAuthButtonTapped[]
     
     func showError(title: String, error: Error) {
         ViewHelper.showErrorBannerMessage(from: self, title: title, message: error.localizedDescription)

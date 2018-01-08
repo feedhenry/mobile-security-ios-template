@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         
+        // tag::trustkitConfig[]
         // Define TrustKit configuration
         let trustKitConfig = [
             kTSKSwizzleNetworkDelegates: true,
@@ -35,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Init TrustKit with the above config
         TrustKit.initSharedInstance(withConfiguration: trustKitConfig)
+        // end::trustkitConfig[]
         
         //Load the configuration file
         let configFilePath = Bundle.main.path(forResource: "AppConfig", ofType: "plist")!
