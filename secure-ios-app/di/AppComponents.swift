@@ -19,7 +19,8 @@ class AppComponents {
     var storageService: StorageService?
     let REALM_STORAGE_KEYCHAIN_ALIAS = "realm-db-keychain"
     var deviceTrustService: DeviceTrustService?
-
+    var certPinningService: CertPinningService?
+    
     init(appConfiguration: AppConfiguration) {
         self.appConfiguration = appConfiguration
         self.kcWrapper = KeychainWrapper.standard
@@ -41,6 +42,14 @@ class AppComponents {
             encryptionKey = nil
         }
         return self.storageService!
+    }
+    
+    // Setup the Cert Pinning Service
+    func resolveCertPinningService() -> CertPinningService {
+        if self.certPinningService == nil {
+            self.certPinningService = iosCertPinningService(appConfiguration: self.appConfiguration)
+        }
+        return self.certPinningService!
     }
 
     func resolveDeviceTrustService() -> DeviceTrustService {

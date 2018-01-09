@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import TrustKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // tag::trustkitConfig[]
+        // Define TrustKit configuration
+        let trustKitConfig = [
+            kTSKSwizzleNetworkDelegates: true,
+            kTSKPinnedDomains: [
+                "security.feedhenry.org": [
+                    kTSKIncludeSubdomains : true,
+                    kTSKEnforcePinning : true,
+                    kTSKPublicKeyAlgorithms: [kTSKAlgorithmRsa2048],
+                    kTSKPublicKeyHashes: [
+                        "trENjoQnbWupnAtu1/WagBE0RgJ+p7ke2ppWML8vAl0=",
+                        "arENjoQnbWupnAtu1/WagBE0RgJ+p7ke2ppWML8vAl0="
+                    ],]]] as [String : Any]
+        
+        // Init TrustKit with the above config
+        TrustKit.initSharedInstance(withConfiguration: trustKitConfig)
+        // end::trustkitConfig[]
         
         //Load the configuration file
         let configFilePath = Bundle.main.path(forResource: "AppConfig", ofType: "plist")!

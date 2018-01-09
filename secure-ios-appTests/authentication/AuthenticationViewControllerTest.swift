@@ -10,8 +10,10 @@ import XCTest
 @testable import secure_ios_app
 
 class TestAuthListener: AuthListener {
+
     var startAuthCalled: Bool = false
     var logoutCalled: Bool = false
+    var pinningFailure: Bool = false
     
     func startAuth(presentingViewController: UIViewController) {
         startAuthCalled = true
@@ -19,6 +21,10 @@ class TestAuthListener: AuthListener {
     
     func logout() {
         logoutCalled = true
+    }
+    
+    func performPreCertCheck(onCompleted: @escaping (Bool) -> Void) {
+        onCompleted(!pinningFailure)
     }
 }
 
@@ -47,6 +53,17 @@ class AuthenticationViewControllerTest: XCTestCase {
         XCTAssertFalse(authViewController.authenticationButton.isHidden)
         authViewController.onAuthButtonTapped(UIButton())
         XCTAssertTrue(authListener.startAuthCalled)
+    }
+    
+    func testAuthButtonWithInsecureChannel() {
+        XCTAssertFalse(authViewController.authenticationButton.isHidden)
+        authListener.pinningFailure = true
+        authViewController.onAuthButtonTapped(UIButton())
+        XCTAssertFalse(authListener.startAuthCalled)
+        XCTAssertTrue(authViewController.authenticationButton.isHidden)
+        XCTAssertTrue(authViewController.logoImage.isHidden)
+        XCTAssertFalse(authViewController.dangerLogo.isHidden)
+        XCTAssertFalse(authViewController.certPinningError.isHidden)
     }
     
 }

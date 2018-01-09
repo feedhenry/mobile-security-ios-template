@@ -16,6 +16,7 @@
 		AB3E12041FC3307400B7302C /* StorageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E12031FC3307400B7302C /* StorageInteractor.swift */; };
 		AB3E12061FC331CB00B7302C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E12051FC331CB00B7302C /* StorageService.swift */; };
 		AB3E12081FC3376500B7302C /* StorageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E12071FC3376500B7302C /* StorageBuilder.swift */; };
+		AB73E11B1FFBCF30007BBDF5 /* CertPinningService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73E11A1FFBCF30007BBDF5 /* CertPinningService.swift */; };
 		ABEDBC7C1FD040490027066A /* DeviceTrustService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC7B1FD040490027066A /* DeviceTrustService.swift */; };
 		ABEDBC8F1FD04A7C0027066A /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC8E1FD04A7C0027066A /* Detector.swift */; };
 		ABEDBC911FD04AF90027066A /* DeviceTrustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEDBC901FD04AF90027066A /* DeviceTrustViewController.swift */; };
@@ -96,6 +97,7 @@
 		AB3E12031FC3307400B7302C /* StorageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageInteractor.swift; sourceTree = "<group>"; };
 		AB3E12051FC331CB00B7302C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		AB3E12071FC3376500B7302C /* StorageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageBuilder.swift; sourceTree = "<group>"; };
+		AB73E11A1FFBCF30007BBDF5 /* CertPinningService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertPinningService.swift; sourceTree = "<group>"; };
 		ABEDBC7B1FD040490027066A /* DeviceTrustService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTrustService.swift; sourceTree = "<group>"; };
 		ABEDBC8E1FD04A7C0027066A /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
 		ABEDBC901FD04AF90027066A /* DeviceTrustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTrustViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				B32CBD2D1FD0B61F008CFEF1 /* ViewHelper.swift */,
 				AB3E12051FC331CB00B7302C /* StorageService.swift */,
 				ABEDBC7B1FD040490027066A /* DeviceTrustService.swift */,
+				AB73E11A1FFBCF30007BBDF5 /* CertPinningService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/TrustKit/TrustKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -762,6 +766,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrustKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -786,6 +791,7 @@
 				ABEDBC911FD04AF90027066A /* DeviceTrustViewController.swift in Sources */,
 				B3E21B4B1FAC956E00082CF7 /* secure_ios_app.xcdatamodeld in Sources */,
 				B36F5F471FFB9A3200CAB771 /* AccessControlRouter.swift in Sources */,
+				AB73E11B1FFBCF30007BBDF5 /* CertPinningService.swift in Sources */,
 				B32CBD2E1FD0B61F008CFEF1 /* ViewHelper.swift in Sources */,
 				B30BEBEE1FB5B7770008A171 /* Identity.swift in Sources */,
 				ABEDBC8F1FD04A7C0027066A /* Detector.swift in Sources */,
