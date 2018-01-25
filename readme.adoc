@@ -12,6 +12,7 @@ For more information, please check the https://github.com/feedhenry/mobile-secur
 - Single Sign-on
 - Mobile Access Control
 - Client Cert Authentication
+- Certificate Pinning
 - Secure Data Storage
 - Buffer Overflow Protections
 - Device Trust Checks (Jailbreak, latest OS etc)
