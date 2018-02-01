@@ -39,6 +39,7 @@ class AppAuthAuthenticationService: AuthenticationService {
         self.identify = getIdentify(authState: self.authState)
     }
     
+    // tag::performAuthentication[]
     func performAuthentication(presentingViewController viewController:UIViewController, onCompleted: @escaping (Identity?, Error?) -> Void) {
         self.onCompleted = onCompleted
                 
@@ -57,6 +58,7 @@ class AppAuthAuthenticationService: AuthenticationService {
             }
         }
     }
+    // end::performAuthentication[]
     
     func resumeAuth(url: URL) -> Bool {
         if self.currentAuthorisationFlow!.resumeAuthorizationFlow(with: url) {
@@ -66,9 +68,11 @@ class AppAuthAuthenticationService: AuthenticationService {
         return false
     }
     
+    // tag::isLoggedIn[]
     func isLoggedIn() -> Bool {
         return self.identify != nil
     }
+    // end::isLoggedIn[]
     
     func authSuccess(authState: OIDAuthState) {
         Logger.debug("got auth state \(authState.debugDescription)")
@@ -89,6 +93,7 @@ class AppAuthAuthenticationService: AuthenticationService {
         }
     }
     
+    // tag::performLogout[]
     func performLogout(onCompleted: @escaping (Error?) -> Void) {
         if self.isLoggedIn() {
             let logoutUrl = self.authServerConfiguration.getLogoutUrl(identityToken: self.authState!.lastTokenResponse!.idToken!)
@@ -103,6 +108,7 @@ class AppAuthAuthenticationService: AuthenticationService {
             })
         }
     }
+    // end::performLogout[]
     
     func currentIdentity() -> Identity? {
         return self.identify
