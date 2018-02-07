@@ -110,8 +110,8 @@ class RealmStorageService: StorageService {
                 let realm = try self.getRealmInstance()
                 try realm.safeWrite {
                     realm.add(note)
-                    
-                onComplete(nil, note.clone())
+                    try! realm.commitWrite()
+                    onComplete(nil, note.clone())
                 }
             } catch {
                 onComplete(error, nil)
