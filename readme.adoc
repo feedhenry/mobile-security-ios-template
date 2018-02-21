@@ -23,3 +23,43 @@ For more information, please check the https://github.com/feedhenry/mobile-secur
 - Account Lockout Policies (via Keycloak)
 - Authentication/Access Control Auditing & Logging (via Keycloak)
 - Authenticated Calls to Protected Endpoints (via Keycloak)
+
+== Work with Different Backend Services
+
+By default the app will use the backend services that are running on https://security.skunkhenry.com:8443[a dedicated OpenShift cluster] for demonstration purpose. 
+
+You can also configure the app to run against different backend services:
+
+1. Update the URLs in link:secure-ios-app/AppConfig.plist[AppConfig.plist] file.
+2. If you are using HTTPS, update the certificate pinning configuration in link:secure-ios-app/AppDelegate.swift[AppDelegate.swift] file
+
+To generate the hash value of the certificate, you can use this command:
+[source, bash]
+----
+openssl s_client -servername <hostname> -connect <hostname:port> | openssl x509 -pubkey -noout | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
+----
+
+If you are using self-signed certificate, follow the instructions in the next section.
+
+== Work with Self-signed Certificate
+
+The easiest way to support self-signed certificate is to install the CA certificate that is used to sign the certificate onto the device/simulator.
+
+1. Get the CA certificate of the server. You can use this command:
++
+[source, bash]
+----
+openssl s_client -showcerts -connect host:port
+---- 
++
+It will print out the full certificate chain of the server and you should save the content of the root certificate into a PEM file.
+
+2. Install the CA certificate onto the device.
++
+To install onto an iOS simulator, you can simply drag & drop the certificate file over it.
++
+To install on an actual device, you can use a file sharing service or send the certificate file as an email attachment.
+
+3. Ensure the newly installed CA certificate is trusted. 
++
+On the device/simulator, go to `Settings -> General -> About -> Certificate Trust Settings` and enable full trust for the certificate.
