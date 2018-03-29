@@ -1,12 +1,22 @@
 PODS:
+  - AGSAuth (1.0.0):
+    - AGSCore
+    - AppAuth (~> 0.92)
+    - SwiftKeychainWrapper (~> 3.0.1)
+  - AGSCore (1.0.0):
+    - Alamofire (~> 4.0)
+    - XCGLogger (~> 6.0)
   - Alamofire (4.5.1)
-  - AppAuth (0.91.0)
+  - AppAuth (0.92.0)
   - DTTJailbreakDetection (0.4.0)
   - Floaty (4.0.0)
   - MarqueeLabel/Swift (3.1.3)
   - NotificationBannerSwift (1.5.1):
     - MarqueeLabel/Swift
     - SnapKit (~> 4.0)
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - Realm (3.0.2):
     - Realm/Headers (= 3.0.2)
   - Realm/Headers (3.0.2)
@@ -16,10 +26,15 @@ PODS:
   - SnapKit (4.0.0)
   - SwiftKeychainWrapper (3.0.1)
   - TrustKit (1.5.1)
+  - XCGLogger (6.0.2):
+    - XCGLogger/Core (= 6.0.2)
+  - XCGLogger/Core (6.0.2):
+    - ObjcExceptionBridging
 
 DEPENDENCIES:
+  - AGSAuth (from `./aerogear-ios-sdk/modules/auth`)
+  - AGSCore (from `./aerogear-ios-sdk/modules/core`)
   - Alamofire (~> 4.5)
-  - AppAuth
   - DTTJailbreakDetection
   - Floaty (~> 4.0.0)
   - NotificationBannerSwift
@@ -29,6 +44,10 @@ DEPENDENCIES:
   - TrustKit
 
 EXTERNAL SOURCES:
+  AGSAuth:
+    :path: ./aerogear-ios-sdk/modules/auth
+  AGSCore:
+    :path: ./aerogear-ios-sdk/modules/core
   SCLAlertView:
     :branch: master
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
@@ -39,19 +58,23 @@ CHECKOUT OPTIONS:
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
 
 SPEC CHECKSUMS:
+  AGSAuth: 0295257f86612160da9574b019dfdf3e47152c12
+  AGSCore: ec49c6c066e149819e8a3f6e821dd6c91a7f4ac7
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  AppAuth: 3e0dc9c00ef333dc62064e4830aa89b597ae8d2f
+  AppAuth: 3f4f1d6d85ad631d0bbf15ffcdc10c447face97a
   DTTJailbreakDetection: 5e356c5badc17995f65a83ed9483f787a0057b71
   Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   MarqueeLabel: baa5753dcbd36dca080e1f5c589a665aa5c906f1
   NotificationBannerSwift: 666e6c392238561c17a52db4c50e6f00d9942e0d
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
   RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   TrustKit: da4313b23b94a783b6e72581e0992ce73900707b
+  XCGLogger: c9601cae9a8912de34a58666ba931ed3d624dd31
 
-PODFILE CHECKSUM: a71299df6277af7a7194cd890c27d38319c435f4
+PODFILE CHECKSUM: 9b4775b48b9f4a31355bd46b58b6cc586e6202f4
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

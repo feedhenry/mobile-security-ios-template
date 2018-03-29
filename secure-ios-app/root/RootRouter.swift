@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AGSAuth
 
 /*
  The router for the root view module. It is responsible to load child modules and attach them to the view.
@@ -56,11 +57,10 @@ class RootRouterImpl: RootRouter {
     }
     
     func launchAuthenticationView() {
-        let authService = self.appComponents.resolveAuthService()
         if self.authenticationRouter == nil {
             self.authenticationRouter = AuthenticationBuilder(appComponents: self.appComponents).build()
         }
-        self.rootViewController.presentViewController(self.authenticationRouter!.initialViewController(identity: authService.currentIdentity()), true)
+        self.rootViewController.presentViewController(self.authenticationRouter!.initialViewController(user: self.resolveCurrentUser()), true)
     }
     
     // Storage View
@@ -80,16 +80,26 @@ class RootRouterImpl: RootRouter {
     }
     
     func launchAccessControlView() {
-        let authService = self.appComponents.resolveAuthService()
-        if authService.isLoggedIn() {
+        let currentUser = self.resolveCurrentUser()
+        if currentUser != nil {
             if self.accessControlRouter == nil {
                 self.accessControlRouter = AccessControlBuilder(appComponents: self.appComponents).build()
             }
             let acVC = self.accessControlRouter!.viewController
             self.rootViewController.presentViewController(acVC, true)
-            acVC.userIdentity = authService.currentIdentity()
+            acVC.userIdentity = currentUser
         } else {
             launchAuthenticationView()
+        }
+    }
+    
+    func resolveCurrentUser() -> User? {
+        let authService = self.appComponents.resolveAuthService()
+        do {
+            guard let currentUser = try! authService.currentUser() else {
+                return nil
+            }
+            return currentUser
         }
     }
 }

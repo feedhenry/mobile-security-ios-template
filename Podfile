@@ -6,7 +6,8 @@ target 'secure-ios-app' do
   use_frameworks!
 
   # Pods for secure-ios-app
-  pod 'AppAuth'
+  pod 'AGSCore', :path => './aerogear-ios-sdk/modules/core'
+  pod 'AGSAuth', :path => './aerogear-ios-sdk/modules/auth'
   pod 'SwiftKeychainWrapper'
   pod 'Alamofire', '~> 4.5'
   pod 'NotificationBannerSwift'

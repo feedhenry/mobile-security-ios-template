@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import AGSAuth
 
 /* Manage the routing insdie the authentication view */
 protocol AuthenticationRouter {
     var viewController: AuthenticationViewController {get}
     var detailsViewController: AuthenticationDetailsViewController {get}
-    func navigateToUserDetailsView(withIdentify identify: Identity?, andError error: Error?)
+    func navigateToUserDetailsView(withIdentify identify: User?, andError error: Error?)
     func leaveUserDetailsView(withError error: Error?)
-    func initialViewController(identity: Identity?) -> UIViewController
+    func initialViewController(user: User?) -> UIViewController
 }
 
 class AuthenticationRouterImpl: AuthenticationRouter {
@@ -26,10 +27,10 @@ class AuthenticationRouterImpl: AuthenticationRouter {
         self.detailsViewController = detailsViewController
     }
     
-    func navigateToUserDetailsView(withIdentify identity: Identity?, andError error: Error?) {
-        if let identityInfo = identity {
+    func navigateToUserDetailsView(withIdentify user: User?, andError error: Error?) {
+        if let identityInfo = user {
             Logger.info("got user identity: \(identityInfo)")
-            self.detailsViewController.displayUserDetails(from: self.viewController, identity: identityInfo)
+            self.detailsViewController.displayUserDetails(from: self.viewController, user: identityInfo)
         } else if let err = error {
             Logger.info("authentication failed with error \(err.localizedDescription)")
             self.viewController.showError(title: "Login Failed", error: err)
@@ -46,10 +47,10 @@ class AuthenticationRouterImpl: AuthenticationRouter {
         }
     }
     
-    func initialViewController(identity: Identity?) -> UIViewController {
-        if let idn = identity {
+    func initialViewController(user: User?) -> UIViewController {
+        if let userIdentity = user {
             // if the user is already logged in, add the details atop of the authentication view
-            self.detailsViewController.userIdentify = idn
+            self.detailsViewController.currentUser = userIdentity
             ViewHelper.showChildViewController(parentViewController: self.viewController, childViewController: self.detailsViewController)
         }
         return self.viewController

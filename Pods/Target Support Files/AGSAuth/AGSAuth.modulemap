@@ -1,0 +1,6 @@
+framework module AGSAuth {
+  umbrella header "AGSAuth-umbrella.h"
+
+  export *
+  module * { export * }
+}

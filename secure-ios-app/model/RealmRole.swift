@@ -1,23 +1,12 @@
 //
-//  File.swift
+//  RealmRole.swift
 //  secure-ios-app
 //
-//  Created by Wei Li on 10/11/2017.
-//  Copyright © 2017 Wei Li. All rights reserved.
+//  Created by Thomas Nolan on 29/03/2018.
+//  Copyright © 2018 Wei Li. All rights reserved.
 //
 
 import Foundation
-
-struct Identity {
-    var userName: String = "Unknown Username"
-    var fullName: String = "Unknown Name"
-    var emailAddress: String = "Unknown Email"
-    var reamlRoles: [String] = []
-    
-    func hasRole(role: String) -> Bool {
-        return self.reamlRoles.contains(role)
-    }
-}
 
 struct RealmRole : Equatable{
     

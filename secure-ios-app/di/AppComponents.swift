@@ -6,6 +6,8 @@
 //  Copyright © 2017 Wei Li. All rights reserved.
 //
 
+import AGSCore
+import AGSAuth
 import Foundation
 import SwiftKeychainWrapper
 
@@ -14,7 +16,7 @@ class AppComponents {
     let appConfiguration: AppConfiguration
     let kcWrapper: KeychainWrapper
 
-    var authService: AuthenticationService?
+    var authService: AgsAuth?
 
     var storageService: StorageService?
     let REALM_STORAGE_KEYCHAIN_ALIAS = "realm-db-keychain"
@@ -26,9 +28,18 @@ class AppComponents {
         self.kcWrapper = KeychainWrapper.standard
     }
 
-    func resolveAuthService() -> AuthenticationService {
+    
+    func resolveAuthService() -> AgsAuth {
         if self.authService == nil {
-            self.authService = AppAuthAuthenticationService(authServerConfig: self.appConfiguration.authServerConf, kcWrapper: self.kcWrapper)
+            self.authService = AgsAuth.instance
+            do {
+                let authConfig = AuthenticationConfig(redirectURL: "com.redhat.secure-ios-app.secureapp:/callback")
+                try authService!.configure(authConfig: authConfig)
+            } catch AgsAuth.Errors.noServiceConfigurationFound {
+                print("No Service Configuration Found")
+            } catch {
+                fatalError("\(error)")
+            }
         }
         return self.authService!
     }

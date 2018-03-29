@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AGSAuth
 
 class AccessControlBuilder {
     
@@ -18,11 +19,20 @@ class AccessControlBuilder {
     
     func build() -> AccessControlRouter {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let authService = self.appComponents.resolveAuthService()
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "AccessControlViewController") as! AccessControlViewController
-        viewController.userIdentity = authService.currentIdentity()
+        viewController.userIdentity = self.resolveCurrentUser()
         
         let accessControlRouter = AccessControlRouterImpl(viewController: viewController)
         return accessControlRouter
+    }
+    
+    func resolveCurrentUser() -> User? {
+        let authService = self.appComponents.resolveAuthService()
+        do {
+            guard let currentUser = try! authService.currentUser() else {
+                return nil
+            }
+            return currentUser
+        }
     }
 }

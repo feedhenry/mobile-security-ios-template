@@ -1,0 +1,36 @@
+{
+    "version": "1.0",
+    "clusterName": "192.168.64.74:8443",
+    "namespace": "myproject",
+    "clientId": "example_client_id",
+    "services": [
+    {
+        "id": "keycloak",
+        "name": "keycloak",
+        "type": "keycloak",
+        "url": "https://www.mocky.io/v2/5a6b59fb31000088191b8ac6",
+         "config": {
+             "auth-server-url": "https://keycloak.security.feedhenry.org/auth",
+             "clientId": "client-app",
+             "realm": "secure-app",
+             "resource": "client-app",
+             "ssl-required": "external",
+             "url": "https://keycloak.security.feedhenry.org/auth"
+         }
+    },
+    {
+         "id": "metrics",
+         "name": "metrics",
+         "type": "metrics",
+         "url": "https://www.mocky.io/v2/5aa696133100001335e716e0",
+         "config": {}
+    },
+    {
+         "id": "push",
+         "name": "push",
+         "type": "push",
+         "url": "https://testing.zeta.feedhenry.com/api/v2/ag-push/",
+         "config": {}
+    }
+    ]
+}
