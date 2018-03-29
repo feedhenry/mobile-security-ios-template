@@ -28,7 +28,7 @@ class AppComponents {
         self.kcWrapper = KeychainWrapper.standard
     }
 
-    
+    // tag::initAuthService[]
     func resolveAuthService() -> AgsAuth {
         if self.authService == nil {
             self.authService = AgsAuth.instance
@@ -43,6 +43,7 @@ class AppComponents {
         }
         return self.authService!
     }
+    // end::initAuthService[]
 
     // Setup the Storage Service
     func resolveStorageService() -> StorageService {

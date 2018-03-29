@@ -27,6 +27,7 @@ class AuthenticationInteractorImpl: AuthenticationInteractor {
         self.certPinningService = certPinningService
     }
     
+    // tag::login[]
     func startAuth(presentingViewController: UIViewController) {
         do {
             try self.authService.login(presentingViewController: presentingViewController, onCompleted: onLoginCompleted)
@@ -34,7 +35,9 @@ class AuthenticationInteractorImpl: AuthenticationInteractor {
             fatalError("Unexpected error: \(error)")
         }
     }
+    // end::login[]
     
+    // tag::logout[]
     func logout() {
         do {
             try self.authService.logout(onCompleted: { error in
@@ -44,6 +47,7 @@ class AuthenticationInteractorImpl: AuthenticationInteractor {
             fatalError("Unexpected error: \(error)")
         }
     }
+    // end::logout[]
     
     /*
      - Calls the cert pinning service to perform a preflight check on the auth server to ensure the channel is clear before continuing.
