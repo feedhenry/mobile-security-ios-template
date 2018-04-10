@@ -14,7 +14,13 @@ class AuthenticationDetailsViewController: UIViewController, UITableViewDataSour
     
     @IBOutlet weak var userInfoView: UITableView!
     
-    var currentUser : User? // in example app
+    var currentUser: User? {
+        didSet {
+            if let tableView = self.userInfoView {
+                tableView.reloadData()
+            }
+        }
+    }
     
     var navbarItem: UINavigationItem?
     var authListener: AuthListener?

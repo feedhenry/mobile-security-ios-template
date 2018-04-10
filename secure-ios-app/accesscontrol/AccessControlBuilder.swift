@@ -26,6 +26,7 @@ class AccessControlBuilder {
         return accessControlRouter
     }
     
+    // tag::resolveCurrentUser[]
     func resolveCurrentUser() -> User? {
         let authService = self.appComponents.resolveAuthService()
         do {
@@ -35,4 +36,5 @@ class AccessControlBuilder {
             return currentUser
         }
     }
+    // end::resolveCurrentUser[]
 }

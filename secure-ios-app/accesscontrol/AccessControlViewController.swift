@@ -50,6 +50,7 @@ class AccessControlViewController: UIViewController, UITableViewDataSource, UITa
         // Dispose of any resources that can be recreated.
     }
     
+    // tag::highlightUserRealmRoles[]
     func highlightUserRealmRoles(user: User) {
         for realmRole in self.allRealmRoles {
             if user.hasRealmRole(realmRole.roleName) {
@@ -59,6 +60,7 @@ class AccessControlViewController: UIViewController, UITableViewDataSource, UITa
             }
         }
     }
+    // end::highlightUserRealmRoles[]
     
     func setRoleAccessoryType(role: RealmRole, type: UITableViewCellAccessoryType) {
         let rowIndex = self.allRealmRoles.index(of: role)!
