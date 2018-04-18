@@ -1,6 +1,6 @@
 {
   "name": "SCLAlertView",
-  "version": "0.7.0",
+  "version": "0.8",
   "summary": "Beautiful Alert View. Written in Swift",
   "homepage": "https://github.com/vikmeup/SCLAlertView-Swift",
   "screenshots": [
@@ -20,8 +20,9 @@
   },
   "source": {
     "git": "https://github.com/vikmeup/SCLAlertView-Swift.git",
-    "tag": "0.7.0"
+    "tag": "0.8"
   },
   "source_files": "SCLAlertView/*.{swift}",
+  "swift_version": "4.0",
   "requires_arc": true
 }
