@@ -29,12 +29,7 @@ class AccessControlBuilder {
     // tag::resolveCurrentUser[]
     func resolveCurrentUser() -> User? {
         let authService = self.appComponents.resolveAuthService()
-        do {
-            guard let currentUser = try! authService.currentUser() else {
-                return nil
-            }
-            return currentUser
-        }
+        return try! authService.currentUser()
     }
     // end::resolveCurrentUser[]
 }
