@@ -7,14 +7,5 @@
 		<key>server-url</key>
 		<string>https://api.security.feedhenry.org</string>
 	</dict>
-	<key>auth-server</key>
-	<dict>
-		<key>auth-server-url</key>
-		<string>https://keycloak.security.feedhenry.org</string>
-		<key>realm-id</key>
-		<string>secure-app</string>
-		<key>client-id</key>
-		<string>client-app</string>
-	</dict>
 </dict>
 </plist>

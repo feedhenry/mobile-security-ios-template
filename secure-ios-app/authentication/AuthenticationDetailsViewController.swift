@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import AGSAuth
 
 
 class AuthenticationDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var userInfoView: UITableView!
     
-    var userIdentify: Identity = Identity() {
+    var currentUser: User? {
         didSet {
             if let tableView = self.userInfoView {
                 tableView.reloadData()
@@ -46,8 +47,8 @@ class AuthenticationDetailsViewController: UIViewController, UITableViewDataSour
         self.removeLogoutBtn()
     }
     
-    func displayUserDetails(from: UIViewController, identity: Identity) {
-        self.userIdentify = identity
+    func displayUserDetails(from: UIViewController, user: User) {
+        self.currentUser = user
         ViewHelper.showChildViewController(parentViewController: from, childViewController: self)
         ViewHelper.showSuccessBannerMessage(from: self, title: "Login Completed", message: "")
     }
@@ -105,7 +106,7 @@ class AuthenticationDetailsViewController: UIViewController, UITableViewDataSour
         case 0:
             return 2
         case 1:
-            return self.userIdentify.reamlRoles.count
+            return self.currentUser!.realmRoles.count
         default:
             return 0
         }
@@ -119,16 +120,16 @@ class AuthenticationDetailsViewController: UIViewController, UITableViewDataSour
             let fieldValueLabel = userInfoCell.contentView.viewWithTag(2) as! UILabel
             if (indexPath.row == 0) {
                 fieldNameLabel.text = "Name"
-                fieldValueLabel.text = self.userIdentify.fullName
+                fieldValueLabel.text = self.currentUser!.fullName
             } else {
                 fieldNameLabel.text = "Email"
-                fieldValueLabel.text = self.userIdentify.emailAddress
+                fieldValueLabel.text = self.currentUser!.email
             }
             return userInfoCell
         } else {
             let roleNameCell = tableView.dequeueReusableCell(withIdentifier: "roleNameCell")!
             let roleValueLabel = roleNameCell.contentView.viewWithTag(1) as! UILabel
-            roleValueLabel.text = self.userIdentify.reamlRoles[indexPath.row]
+            roleValueLabel.text = self.currentUser!.realmRoles[indexPath.row]
             return roleNameCell
         }
     }

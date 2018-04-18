@@ -9,12 +9,13 @@
 import UIKit
 import CoreData
 import TrustKit
+import AGSAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var authService: AuthenticationService?
+    var authService: AgsAuth?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -52,9 +53,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        if authService!.resumeAuth(url: url as URL) {
-            self.authService = nil
-            return true
+        do {
+            return try authService!.resumeAuth(url: url as URL)
+        } catch AgsAuth.Errors.serviceNotConfigured {
+            print("Aerogear auth servie is not configured")
+        } catch {
+            fatalError("Unexpected error: \(error)")
         }
         return false
     }

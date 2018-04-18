@@ -6,6 +6,7 @@
 //  Copyright © 2018 Wei Li. All rights reserved.
 //
 
+import AGSCore
 import Foundation
 import Alamofire
 
@@ -34,7 +35,8 @@ class iosCertPinningService: CertPinningService {
      - Parameter onCompleted - a completion handler that returns the result of the cert check. A true value means that the cert pinning validated successfully. A false value means there was a validation issue which resulted in a pin verification failure.
      */
     func performValidCertCheck(url:String? = nil, onCompleted: @escaping (Bool) -> Void) {
-        let requestURL = url ?? "\(self.appConfiguration.authServerConf.authServerUrl)/auth/"
+        let serviceURL = AgsCore.instance.getConfiguration("keycloak")?.url
+        let requestURL = url ?? "\(serviceURL)/auth/"
         
         Alamofire.request(requestURL).validate(statusCode: 200..<300).responseData(completionHandler: {response in
             switch response.result {

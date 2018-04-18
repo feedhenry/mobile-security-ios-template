@@ -6,7 +6,7 @@ target 'secure-ios-app' do
   use_frameworks!
 
   # Pods for secure-ios-app
-  pod 'AppAuth'
+  pod 'AGSAuth', '~> 0.1.0'
   pod 'SwiftKeychainWrapper'
   pod 'Alamofire', '~> 4.5'
   pod 'NotificationBannerSwift'

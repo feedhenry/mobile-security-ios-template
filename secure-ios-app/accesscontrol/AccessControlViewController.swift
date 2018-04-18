@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AGSAuth
 
 protocol AccessControlListener {
     func showAccess()
@@ -18,13 +19,13 @@ class AccessControlViewController: UIViewController, UITableViewDataSource, UITa
     
     let allRealmRoles = [RealmRoles.apiAccess, RealmRoles.mobileUser, RealmRoles.superUser]
     
-    var userIdentity: Identity? {
+    var userIdentity: User? {
         didSet {
             if rolesTable == nil {
                 return
             }
-            if let identity = self.userIdentity {
-                highlightUserRealmRoles(identity: identity)
+            if let user = self.userIdentity {
+                highlightUserRealmRoles(user: user)
             }
         }
     }
@@ -39,8 +40,8 @@ class AccessControlViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if let identity = self.userIdentity {
-            highlightUserRealmRoles(identity: identity)
+        if let user = self.userIdentity {
+            highlightUserRealmRoles(user: user)
         }
     }
 
@@ -49,15 +50,17 @@ class AccessControlViewController: UIViewController, UITableViewDataSource, UITa
         // Dispose of any resources that can be recreated.
     }
     
-    func highlightUserRealmRoles(identity: Identity) {
+    // tag::highlightUserRealmRoles[]
+    func highlightUserRealmRoles(user: User) {
         for realmRole in self.allRealmRoles {
-            if identity.hasRole(role: realmRole.roleName) {
+            if user.hasRealmRole(realmRole.roleName) {
                 setRoleAccessoryType(role: realmRole, type: UITableViewCellAccessoryType.checkmark)
             } else {
                 setRoleAccessoryType(role: realmRole, type: UITableViewCellAccessoryType.none)
             }
         }
     }
+    // end::highlightUserRealmRoles[]
     
     func setRoleAccessoryType(role: RealmRole, type: UITableViewCellAccessoryType) {
         let rowIndex = self.allRealmRoles.index(of: role)!

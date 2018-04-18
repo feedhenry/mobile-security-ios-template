@@ -7,6 +7,8 @@
 //
 
 import XCTest
+@testable import AGSAuth
+
 @testable import secure_ios_app
 
 class AccessControlViewControllerTest: XCTestCase {
@@ -15,7 +17,13 @@ class AccessControlViewControllerTest: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let user = Identity(userName: "testuser", fullName: "testuser", emailAddress: "testuser@example.com", reamlRoles: [RealmRoles.mobileUser.roleName])
+        
+        
+        let realmRole: UserRole = UserRole(nameSpace: nil, roleName: RealmRoles.apiAccess.roleName)
+        let clientRole: UserRole = UserRole(nameSpace: "client", roleName: "clientRole")
+        let roles: Set<UserRole> = [realmRole, clientRole]
+        
+        let user: User = User(userName: "testUser", email: "testUser@example.com", firstName: "test", lastName: "user", accessToken: "", identityToken: "", roles: roles)
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         accessControlVCToTest = mainStoryboard.instantiateViewController(withIdentifier: "AccessControlViewController") as! AccessControlViewController
         accessControlVCToTest.userIdentity = user
@@ -37,11 +45,15 @@ class AccessControlViewControllerTest: XCTestCase {
     
     func testRender() {
         accessControlVCToTest.viewDidLayoutSubviews()
-        self.checkRoleAccessoryType(row: 1, type: UITableViewCellAccessoryType.checkmark)
+        self.checkRoleAccessoryType(row: 0, type: UITableViewCellAccessoryType.checkmark)
         
-        let anotherUser = Identity(userName: "auser", fullName: "auser", emailAddress: "auser@example.com", reamlRoles: [RealmRoles.superUser.roleName])
+        let realmRole: UserRole = UserRole(nameSpace: nil, roleName: RealmRoles.mobileUser.roleName)
+        let clientRole: UserRole = UserRole(nameSpace: "client", roleName: "clientRole")
+        let roles: Set<UserRole> = [realmRole, clientRole]
+        let anotherUser: User = User(userName: "aUser", email: "aUser@example.com", firstName: "aTest", lastName: "User", accessToken: "", identityToken: "", roles: roles)
+
         accessControlVCToTest.userIdentity = anotherUser
-        self.checkRoleAccessoryType(row: 1, type: UITableViewCellAccessoryType.none)
-        self.checkRoleAccessoryType(row: 2, type: UITableViewCellAccessoryType.checkmark)
+        self.checkRoleAccessoryType(row: 0, type: UITableViewCellAccessoryType.none)
+        self.checkRoleAccessoryType(row: 1, type: UITableViewCellAccessoryType.checkmark)
     }
 }
