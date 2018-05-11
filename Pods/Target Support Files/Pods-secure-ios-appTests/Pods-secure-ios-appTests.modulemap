@@ -1,6 +1,0 @@
-framework module Pods_secure_ios_appTests {
-  umbrella header "Pods-secure-ios-appTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
