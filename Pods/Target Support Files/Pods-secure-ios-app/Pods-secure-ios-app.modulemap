@@ -1,6 +1,0 @@
-framework module Pods_secure_ios_app {
-  umbrella header "Pods-secure-ios-app-umbrella.h"
-
-  export *
-  module * { export * }
-}
